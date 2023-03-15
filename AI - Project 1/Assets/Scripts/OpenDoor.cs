@@ -23,21 +23,21 @@ public class OpenDoor : MonoBehaviour
         Debug.Log("After Coroutine");
     }
 
-    IENumerator OpenClose()
+    IEnumerator OpenClose()
     {
        Vector3 goal = _openPosition;
        bool isOpen = false;
        
-       While(true)
+       while(true)
        {
-            if(Vector3.Distance(transform.positon, goal) < 0.1f)
+            if(Vector3.Distance(transform.position, goal) < 0.1f)
             {
                 isOpen = !isOpen;
                 if(isOpen) { goal = _closedPosition; } else { goal = _openPosition; }
                 
                 yield return new WaitForSeconds(WaitTime);
             }
-            else{}
+            
        }
        
     }
