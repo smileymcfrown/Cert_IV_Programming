@@ -15,6 +15,7 @@ public class MouseLook : MonoBehaviour
     private Vector2 _clamp = new Vector2(-60f, 60f);
     private float _rotationY;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class MouseLook : MonoBehaviour
         {
             _axis = RotationalAxis.MouseY;
         }
+
         //If there's a RigidBody then freeze the rotation so there is no conflict in movement
         if (GetComponent<Rigidbody>())
         {
