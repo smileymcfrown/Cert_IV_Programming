@@ -12,6 +12,7 @@ public class StateMachine : MonoBehaviour
     }
     [SerializeField] private State _state;
     [SerializeField] private Enemy _enemy;
+    [SerializeField] private TurnTimer _turnTimer;
 
     //Keep track of which state we are in
     //Start
@@ -70,12 +71,26 @@ public class StateMachine : MonoBehaviour
 
         while(_state == State.LowHP)
         {
+            if(!_turnTimer.IsNextTurn())
+            {
+                yield return null;
+                continue;
+            }
+
+            _enemy.Heal();
+            _turnTimer.ResetTimer();
+            if(_enemy.CurrentHealth() > 80)
+            {
+                _state = State.Normal;
+            }
+            yield return null;
+
             if(_enemy.CurrentHealth() > 30)
             {
                 _state = State.Normal;
             }
-
-            yield return null;
+            Debug.Log("Exit LowHP State");
+            NextState();
         }
 
         Debug.Log(message:"Exit LowHP State");

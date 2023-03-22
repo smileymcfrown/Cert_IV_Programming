@@ -8,25 +8,30 @@ public class TurnTimer : MonoBehaviour
     public float currentTime = 0;
     public float timerSpeed = 2;
 
-    public bool nextTurn = false;
+    private bool _nextTurn = false;
 
     [SerializeField] private Bar _timerBar;
 
-    // Start is called before the first frame update
-    void Start()
+    public bool IsNextTurn()
     {
-        
+        return _nextTurn;
     }
 
-    // Update is called once per frame
+    public void ResetTimer()
+    {
+        _nextTurn = false;
+        currentTime = 0;
+    }
+
     void Update()
     {
+        if(_nextTurn) return;
+
         currentTime += timerSpeed * Time.deltaTime;
 
         if(currentTime >= 1)
         {
-            nextTurn = true;
-            currentTime = 0;
+            _nextTurn = true;
         }
         _timerBar.SetBar(currentTime, 1);
     }
