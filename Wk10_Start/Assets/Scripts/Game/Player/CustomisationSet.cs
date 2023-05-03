@@ -559,7 +559,7 @@ public class CustomisationSet : Stats
         if (true)
         {
             //GUI button called Save and Play
-            if (GUI.Button(new Rect(),"Save and Play"))
+            if (GUI.Button(new Rect(7f * screen.x, 7.5f * screen.y,3, 2),"Save and Play")) //Saved
             {
                 //Button will run the save function then load game level
                 SaveCharacter();
