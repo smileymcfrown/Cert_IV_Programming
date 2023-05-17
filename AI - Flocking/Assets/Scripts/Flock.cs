@@ -5,18 +5,26 @@ using UnityEngine;
 public class Flock : MonoBehaviour
 {   
     public FlockAgent agentPrefab;
+
     public List <FlockAgent> agents;
+
+    public Behaviour behaviour;
+
     [Range(10,500)]
     public int startingCount = 250;
     public float agentDensity = 0.08f;
-    public Behaviour behaviour;
 
     [Range(1f, 10f)]
     public float contextRadius = 1.5f;
+    [Range(0f, 1f)]
+    public float avoidanceRadius = 0.75f;
+
+    public float squareAvoidanceRadius;
 
     // Start is called before the first frame update
     void Start()
     {
+        squareAvoidanceRadius = avoidanceRadius * avoidanceRadius;
         for(int i = 0; i < startingCount; i++)
         {
             Vector2 randomLocation = Random.insideUnitCircle * startingCount * agentDensity;
@@ -35,9 +43,10 @@ public class Flock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        List<Transform> context = new List<Transform>();
+        
         foreach(FlockAgent agent in agents)
         {
+            List<Transform> context = GetNearbyObjects(agent);
             Vector2 move = behaviour.CalculateMove(agent, context, this);
 
             agent.Move(move);
