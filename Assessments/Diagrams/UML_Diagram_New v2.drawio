@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-05-19T16:47:39.191Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0" etag="-G1StfD_8T_1NqGYSUTu" version="21.3.2" type="device">
+<mxfile host="app.diagrams.net" modified="2023-05-20T03:30:32.476Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/113.0" etag="5iTUib2J2o_Ti44Wh3-2" version="21.3.2" type="device">
   <diagram name="Page-1" id="l8iS71WG1GaFusM7zTBg">
     <mxGraphModel dx="1434" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -25,7 +25,7 @@
         <mxCell id="9kdT3CoZ0wVeUw6Ti21M-48" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="9kdT3CoZ0wVeUw6Ti21M-46" vertex="1">
           <mxGeometry y="130" width="160" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="9kdT3CoZ0wVeUw6Ti21M-49" value="SetDifficulty()&lt;br&gt;LoadDictionary()&lt;br&gt;DisplayWord()&lt;br&gt;PlayerInput()&lt;br&gt;CheckLetter()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="9kdT3CoZ0wVeUw6Ti21M-46" vertex="1">
+        <mxCell id="9kdT3CoZ0wVeUw6Ti21M-49" value="SetDifficulty()&lt;br&gt;DisplayWord()&lt;br&gt;PlayerInput()&lt;br&gt;CheckLetter()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="9kdT3CoZ0wVeUw6Ti21M-46" vertex="1">
           <mxGeometry y="138" width="160" height="92" as="geometry" />
         </mxCell>
         <mxCell id="tNA1-qNBAwHYwjkVZF_h-1" value="Score" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
