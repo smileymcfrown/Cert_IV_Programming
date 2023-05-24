@@ -7,6 +7,7 @@ public class Menus : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuPanel, quitPanel, difficultyPanel, gamePanel;
     public GameManager gameManager;
+    public LoadWords loadWords;
     private bool quitActive = false;
     
     public void DifficultyMenu()
@@ -16,9 +17,10 @@ public class Menus : MonoBehaviour
         mainMenuPanel.SetActive(false);
     }
 
-    public void DifficultySelect(int choice)
+    public void DifficultySelect(string choice)
     {
-        gameManager.difficulty = choice;
+        loadWords.LoadFile(choice);
+        gameManager.LoadWord();
         difficultyPanel.SetActive(false);
     }
     
