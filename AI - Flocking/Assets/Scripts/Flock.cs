@@ -20,6 +20,7 @@ public class Flock : MonoBehaviour
     public float avoidanceRadius = 0.75f;
 
     public float squareAvoidanceRadius;
+    public float speed = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +50,7 @@ public class Flock : MonoBehaviour
             List<Transform> context = GetNearbyObjects(agent);
             Vector2 move = behaviour.CalculateMove(agent, context, this);
 
-            agent.Move(move);
+            agent.Move(move * speed);
         }
     }
 
