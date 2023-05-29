@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Menus : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuPanel, quitPanel, difficultyPanel, gamePanel;
-    public GameManager gameManager;
-    public LoadWords loadWords;
+    [SerializeField] private GameObject mainMenuPanel, quitPanel, difficultyPanel, gamePanel, wordPanel, losePanel, winPanel;
+    private GameManager gameManager;
+    [SerializeField] LoadWords loadWords;
+    // private PlayWord playWord;
     private bool quitActive = false;
     
     public void DifficultyMenu()
     {
-        gamePanel.SetActive(true);
         difficultyPanel.SetActive(true);
         mainMenuPanel.SetActive(false);
     }
@@ -20,8 +21,10 @@ public class Menus : MonoBehaviour
     public void DifficultySelect(string choice)
     {
         loadWords.LoadFile(choice);
-        gameManager.LoadWord();
+        gamePanel.SetActive(true);
+        wordPanel.SetActive(true);
         difficultyPanel.SetActive(false);
+
     }
     
     public void QuitMenu()
@@ -42,6 +45,14 @@ public class Menus : MonoBehaviour
     {
         Application.Quit();
     }
+
     
     
+    // To continue playing and load next word
+    public void NextWord()
+    {
+        wordPanel.SetActive(false);
+        wordPanel.SetActive(true);
+        winPanel.SetActive(false);
+    }
 }
