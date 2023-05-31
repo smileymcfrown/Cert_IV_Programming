@@ -56,7 +56,6 @@ public class Menus : MonoBehaviour
     }
 
     
-    
     // To continue playing and load next word
     public void NextWord()
     {

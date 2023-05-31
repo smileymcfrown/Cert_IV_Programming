@@ -32,14 +32,7 @@ public class PlayWord : MonoBehaviour
     
     private void OnDisable()
     {
-        for (int i = transform.childCount -1; i >= 0; i--)
-        {
-            Destroy(transform.GetChild(i).gameObject);
-        }
-
         GameObject gO = GameObject.Find("Keyboard");
-
-
 
         for (int i = gO.transform.childCount - 1; i >= 0; i--)
         {
@@ -48,6 +41,11 @@ public class PlayWord : MonoBehaviour
             ColorBlock colours = button.colors;
             colours.normalColor = Color.white;
             button.colors = colours;
+        }
+
+        for (int i = transform.childCount -1; i >= 0; i--)
+        {
+            Destroy(transform.GetChild(i).gameObject);
         }
     }
 
