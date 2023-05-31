@@ -11,6 +11,15 @@ public class Menus : MonoBehaviour
     [SerializeField] LoadWords loadWords;
     // private PlayWord playWord;
     private bool quitActive = false;
+
+    public void MainMenu()
+    {
+        mainMenuPanel.SetActive(true);
+        quitPanel.SetActive(false);
+        losePanel.SetActive(false);
+        winPanel.SetActive(false);
+        gamePanel.SetActive(false);
+    }
     
     public void DifficultyMenu()
     {

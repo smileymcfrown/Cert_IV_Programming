@@ -10,26 +10,46 @@ using TMPro;
 public class PlayWord : MonoBehaviour
 {
     private string word;
+    private int lettersCorrect;
+    private int incorrectGuesses;
     //private LoadWords loadWords;
-    
+
     [SerializeField] private GameObject letterSpace;
+    [SerializeField] private GameObject losePanel;
+    [SerializeField] private GameObject winPanel;
     private List<TMP_Text> wordSpaces = new List<TMP_Text>();
+    
     
     // Load a new word when the panel is enabled
     void OnEnable()
     {
         LoadWord();
+        incorrectGuesses = 0;
+        lettersCorrect = 0;
     }
     
     // Clear the current word when the panel is disabled
-    /*
+    
     private void OnDisable()
     {
-        for (int i = transform.childCount; i >= 0; i--)
+        for (int i = transform.childCount -1; i >= 0; i--)
         {
             Destroy(transform.GetChild(i).gameObject);
         }
-    }*/
+
+        GameObject gO = GameObject.Find("Keyboard");
+
+
+
+        for (int i = gO.transform.childCount - 1; i >= 0; i--)
+        {
+            Button button = gO.transform.GetChild(i).GetComponent<Button>();
+            button.interactable = true;
+            ColorBlock colours = button.colors;
+            colours.normalColor = Color.white;
+            button.colors = colours;
+        }
+    }
 
     // Update will likely not be used
     void Update()
@@ -60,7 +80,7 @@ public class PlayWord : MonoBehaviour
                 {
                     GameManager.Instance.usedWords.Add(word);
                     wordCheck = true;
-                    word = "CHARACTERISTICALLY"; // Test word
+                    //word = "SUPERCALIFRAGILISTICEPIALIDOCIOUS"; // Test word
                     Debug.Log("The word of the day is " + word);
                 }
                 else
@@ -83,7 +103,7 @@ public class PlayWord : MonoBehaviour
         // Instantiate a letter space prefabs in to fit within the panel
         float spacing = (transform.GetComponent<RectTransform>().rect.width - 40 - (word.Length * 50)) / (word.Length + 2);
         Debug.Log("Initial Spacing: " + spacing);
-        if (spacing > 60) { spacing = 60; } 
+        if (spacing > 40) { spacing = 40; } 
         
         float startPos = 25 - (((spacing * (word.Length-1)) + (word.Length*50)) /2);
         
@@ -108,6 +128,7 @@ public class PlayWord : MonoBehaviour
         
         Debug.Log("Check Letter! - " + letter);
         
+        //Loop through word and check each letter (also checking E against É for words like CLICHÉ)
         int i = 0;
         foreach (char c in word)
         {
@@ -115,15 +136,45 @@ public class PlayWord : MonoBehaviour
             {
 
                 wordSpaces[i].text = letter;
+                lettersCorrect++;
                 letterFound = true;
+                
             }
-
             i++;
         }
 
+        // Finish and show the Win Game panel if they complete the word
+        if(lettersCorrect >= word.Length)
+        {
+            //Show Win Panel and end game
+            winPanel.SetActive(true);
+        }
+
+        // Play the 'hangman' animation and increase incorrect guess if the wrong letter
         if (!letterFound)
         {
-            Debug.Log("You Fucked Up!");
+            //Increase incorrect guesses by one.
+            incorrectGuesses++;
+
+
+
+            //Check of the number of guesses and end game at 8
+            if (incorrectGuesses >= 8)
+            {
+                //Play final death animation
+
+                //Load Lose Panel
+                Debug.Log("You lost dipshit!");
+                losePanel.SetActive(true);
+                
+            }
+            else
+            {
+                Debug.Log("You FUCKED UP!");
+                //Call a function that will be placed on the "Hangman" animation to play it
+            }
+
+
         }
         
         // Fade the letter and disable the button
