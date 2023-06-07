@@ -29,11 +29,17 @@ public class Menus : MonoBehaviour
 
     public void DifficultySelect(string choice)
     {
+        //Reset rounds 
+        GameManager.Instance.round = 1;
+        GameManager.Instance.score = 0;
+
+        //Load Dictionary
         loadWords.LoadFile(choice);
+
+        // Enable and Disable Panels
         gamePanel.SetActive(true);
         wordPanel.SetActive(true);
         difficultyPanel.SetActive(false);
-
     }
     
     public void QuitMenu()
@@ -59,8 +65,20 @@ public class Menus : MonoBehaviour
     // To continue playing and load next word
     public void NextWord()
     {
+        GameManager.Instance.round++;
         wordPanel.SetActive(false);
         wordPanel.SetActive(true);
         winPanel.SetActive(false);
+    }
+
+    // Restart the game without going to Main Menu
+    public void NewGame()
+    {
+        losePanel.SetActive(false);
+        winPanel.SetActive(false);
+        wordPanel.SetActive(false);
+        gamePanel.SetActive(false);
+
+        difficultyPanel.SetActive(true);
     }
 }

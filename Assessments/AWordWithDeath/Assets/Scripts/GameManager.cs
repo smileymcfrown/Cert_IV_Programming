@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public int score;
+    public int round;
     //public List<string> wordList = new List<string>();
     public string[] wordList;
     public List<string> usedWords = new List<string>();
