@@ -1,0 +1,1675 @@
+fileFormatVersion: 2
+guid: 2b580b22221d00346a4fcdb049125e93
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 270
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9875652b10e474ba366036a314b2a6
+      internalID: -1742974274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 270
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b5eaabf8c0979b40a1fdadb65f29f01
+      internalID: -2035382141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 270
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 458f5d8fb044c8642b25cde5f5b16e25
+      internalID: -952750430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 270
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf8db5f1f22d06428d9546fb8d4915b
+      internalID: -2139635254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 270
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46f7adcdc93fa894c9e9fa0739341d81
+      internalID: -1454921865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 270
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4c364bd55bf84945b1ae14658a1759e
+      internalID: -516669883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_6
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 270
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae03fd300b9a1241b998fcc37c96407
+      internalID: 965108202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_7
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 270
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3fc2de83690587478d7a39d913307e6
+      internalID: -84553038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 270
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d5791d25341b284989535f5152b7f95
+      internalID: 1070258713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_9
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 270
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b055f32b79c0efc4285bcf17423607e0
+      internalID: 53812950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 270
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbeac83702ed01340839588c3c438a1e
+      internalID: -340741662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_11
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 270
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2cbaaecefb6a85499b72e357223e117
+      internalID: -625453805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 216
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18288b375cbc63a47bb9466b13faa7dd
+      internalID: -1826870878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_13
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 216
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d3f12a84d4090045acab4143049eb28
+      internalID: 1951734935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_14
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 216
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e767be4d6f44eab449370b6a1900607b
+      internalID: 1700456037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_15
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 216
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef9bdf701ef382d43a1b309da5e0beb9
+      internalID: -217262526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_16
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 216
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7016e3f412fc6f644a518d835031def0
+      internalID: -604337381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_17
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 216
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 858163c16e359a146b049127a3824be1
+      internalID: -963975990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_18
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 216
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dbc807257dd75b429804583acffc59f
+      internalID: -229865010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_19
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 216
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a4eb8f57e41b5944a8394bb009ea12c
+      internalID: -40304670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_20
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 216
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 545ca39b34e47d94fad825b3d1fb7100
+      internalID: 1667759084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_21
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 216
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed5baab10d952364184bae297fc57f95
+      internalID: 1041846500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_22
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 216
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e671041399c23848a6d1d83d61cd8d9
+      internalID: 1025774851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_23
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 216
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7237f8ce7f5667243a901fb1e3f167ad
+      internalID: -266276595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 162
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32377c695b104234eb0c11cd9db77235
+      internalID: 1494174397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_25
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 162
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 199a9dd1848fc2b43b9ebdb9e3057594
+      internalID: 33910788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_26
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 162
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd661e5751fc6044d83d7cd6f5f917a9
+      internalID: 1089158551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_27
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 162
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 799469850b87f7847a19529d640c32de
+      internalID: -265637154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_28
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 162
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 675ad8a7398956d4dbc78b9be0de8ecf
+      internalID: 1078430250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_29
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 162
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c95e5a1a7e4fe41955be7319805ed0
+      internalID: -332021416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_30
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 162
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5e30b2aebc88694cbf474753aa5b28a
+      internalID: 1053142930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_31
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 162
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fbebaf35336c9b42965e34726b5fa19
+      internalID: 2118759244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_32
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 162
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d06b37a527f0fd4b8944cb12ef03868
+      internalID: -764445867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_33
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 162
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c915fe5a207e5234b8939e6c1c6f86aa
+      internalID: 2108297400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_34
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 162
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd6201fb1351c3d4fb7e626c2a0a70c8
+      internalID: 611074167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_35
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 162
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59611d9e8948a74cbdbd45de69bbadd
+      internalID: 829334270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 108
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d6e4c9fbafb604b88a8734a5c72403
+      internalID: -726118408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_37
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 108
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b7f59da647a5d45a6112fbc1ed4648
+      internalID: -727560114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_38
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 108
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ef806d28997d548a7d9cae363bf3a7
+      internalID: 1158699077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_39
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 108
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 969cca6ceea302742bb7beb25b45e648
+      internalID: 663815260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_40
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 108
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a957d7fe831d0ba449bf2a0acb6b604c
+      internalID: -1424923838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_41
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 108
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 482452b12c5ad574d98bcd5ed4c38fa8
+      internalID: 1499793098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_42
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 108
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f797ac754026b024ebd3f98c4778fa08
+      internalID: 1840064709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_43
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 108
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43cf132be6e904140a676987238aae7a
+      internalID: 1524864840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_44
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 108
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333540ca6f3cb344f94f59eee67c4047
+      internalID: -40009052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_45
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 108
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 341d5ef7cd0ce274983b8534b483867b
+      internalID: -2142637771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_46
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 108
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8477ca05798db7d40a29ce781a3b1a53
+      internalID: 100213206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_47
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 108
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ed2bcbdf787fc41ad69d89750d5012
+      internalID: -1233554654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 54
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ecbe4de163fbc246bef8f18e058cce3
+      internalID: -1661357121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_49
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 54
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa5f5ec1f93d374c9792ed91f422726
+      internalID: -1377719935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_50
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 54
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92438fc166d9ba246b406fd71f6ff7c1
+      internalID: 1693736604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_51
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 54
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6b01e499c084244b914d26669110b2
+      internalID: -461030026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_52
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 54
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cdda687f0de2844987ba8ce6f37a269
+      internalID: 381330632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_53
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 54
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0d8e817edff5e440a457ea380c310c0
+      internalID: 838305210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_54
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 54
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8deb301ed0c0ffa4392680a348db2230
+      internalID: 1326999934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_55
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 54
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cbcd931b6dd5254089568a1c3ece268
+      internalID: -135805134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_56
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 54
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08f98bb14c03f424599143ed84164a01
+      internalID: 1674360485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_57
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 54
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730ac7dc4d86db646a6947a3c2dbadf7
+      internalID: -797750755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_58
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 54
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c588684f87cb944b948d831eb77d55
+      internalID: 2094295290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_59
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 54
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d28b5ec83f1c045b2ec0f6b6ebf974
+      internalID: 152911241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd92f4c3f63df1a42a0b62713779f1ce
+      internalID: -1876861415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_61
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab3e3954a39bf3342bb1a28f1c03bcdd
+      internalID: 1236766355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_62
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ada522749fd2c4a9613a45e739e06b
+      internalID: -1556065355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_63
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f778d16695b1c64e8b7f3a35373c046
+      internalID: -1578601488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_64
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23308a1031cc62949ad9fa37a4b8353a
+      internalID: 45379254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_65
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac515532351a4a40bb439ab1e3f11c9
+      internalID: -1014361312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_66
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05dc3385e2b508645b83eaa445568c75
+      internalID: 619900067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_67
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67bf8fdb4f8ed7f4b82a2dafa68d0d68
+      internalID: -1492486241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_68
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e59fd92445f35b54ba5450eb62f322e9
+      internalID: 1672555115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_font_regular_Tiled_40x54_69
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 158c2acdb278cec40ab9d490a32555f2
+      internalID: -979228100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      menu_font_regular_Tiled_40x54_0: -1742974274
+      menu_font_regular_Tiled_40x54_1: -2035382141
+      menu_font_regular_Tiled_40x54_10: -340741662
+      menu_font_regular_Tiled_40x54_11: -625453805
+      menu_font_regular_Tiled_40x54_12: -1826870878
+      menu_font_regular_Tiled_40x54_13: 1951734935
+      menu_font_regular_Tiled_40x54_14: 1700456037
+      menu_font_regular_Tiled_40x54_15: -217262526
+      menu_font_regular_Tiled_40x54_16: -604337381
+      menu_font_regular_Tiled_40x54_17: -963975990
+      menu_font_regular_Tiled_40x54_18: -229865010
+      menu_font_regular_Tiled_40x54_19: -40304670
+      menu_font_regular_Tiled_40x54_2: -952750430
+      menu_font_regular_Tiled_40x54_20: 1667759084
+      menu_font_regular_Tiled_40x54_21: 1041846500
+      menu_font_regular_Tiled_40x54_22: 1025774851
+      menu_font_regular_Tiled_40x54_23: -266276595
+      menu_font_regular_Tiled_40x54_24: 1494174397
+      menu_font_regular_Tiled_40x54_25: 33910788
+      menu_font_regular_Tiled_40x54_26: 1089158551
+      menu_font_regular_Tiled_40x54_27: -265637154
+      menu_font_regular_Tiled_40x54_28: 1078430250
+      menu_font_regular_Tiled_40x54_29: -332021416
+      menu_font_regular_Tiled_40x54_3: -2139635254
+      menu_font_regular_Tiled_40x54_30: 1053142930
+      menu_font_regular_Tiled_40x54_31: 2118759244
+      menu_font_regular_Tiled_40x54_32: -764445867
+      menu_font_regular_Tiled_40x54_33: 2108297400
+      menu_font_regular_Tiled_40x54_34: 611074167
+      menu_font_regular_Tiled_40x54_35: 829334270
+      menu_font_regular_Tiled_40x54_36: -726118408
+      menu_font_regular_Tiled_40x54_37: -727560114
+      menu_font_regular_Tiled_40x54_38: 1158699077
+      menu_font_regular_Tiled_40x54_39: 663815260
+      menu_font_regular_Tiled_40x54_4: -1454921865
+      menu_font_regular_Tiled_40x54_40: -1424923838
+      menu_font_regular_Tiled_40x54_41: 1499793098
+      menu_font_regular_Tiled_40x54_42: 1840064709
+      menu_font_regular_Tiled_40x54_43: 1524864840
+      menu_font_regular_Tiled_40x54_44: -40009052
+      menu_font_regular_Tiled_40x54_45: -2142637771
+      menu_font_regular_Tiled_40x54_46: 100213206
+      menu_font_regular_Tiled_40x54_47: -1233554654
+      menu_font_regular_Tiled_40x54_48: -1661357121
+      menu_font_regular_Tiled_40x54_49: -1377719935
+      menu_font_regular_Tiled_40x54_5: -516669883
+      menu_font_regular_Tiled_40x54_50: 1693736604
+      menu_font_regular_Tiled_40x54_51: -461030026
+      menu_font_regular_Tiled_40x54_52: 381330632
+      menu_font_regular_Tiled_40x54_53: 838305210
+      menu_font_regular_Tiled_40x54_54: 1326999934
+      menu_font_regular_Tiled_40x54_55: -135805134
+      menu_font_regular_Tiled_40x54_56: 1674360485
+      menu_font_regular_Tiled_40x54_57: -797750755
+      menu_font_regular_Tiled_40x54_58: 2094295290
+      menu_font_regular_Tiled_40x54_59: 152911241
+      menu_font_regular_Tiled_40x54_6: 965108202
+      menu_font_regular_Tiled_40x54_60: -1876861415
+      menu_font_regular_Tiled_40x54_61: 1236766355
+      menu_font_regular_Tiled_40x54_62: -1556065355
+      menu_font_regular_Tiled_40x54_63: -1578601488
+      menu_font_regular_Tiled_40x54_64: 45379254
+      menu_font_regular_Tiled_40x54_65: -1014361312
+      menu_font_regular_Tiled_40x54_66: 619900067
+      menu_font_regular_Tiled_40x54_67: -1492486241
+      menu_font_regular_Tiled_40x54_68: 1672555115
+      menu_font_regular_Tiled_40x54_69: -979228100
+      menu_font_regular_Tiled_40x54_7: -84553038
+      menu_font_regular_Tiled_40x54_8: 1070258713
+      menu_font_regular_Tiled_40x54_9: 53812950
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
