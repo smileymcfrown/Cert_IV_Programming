@@ -1,0 +1,6 @@
+Simple State
+https://www.youtube.com/watch?v=g8NwELskdv0
+Original Attempt - Patrol, Chase, Look
+https://www.youtube.com/watch?v=ieyHlYp5SLQ
+Brackeys - Dynamic NavMesh Tutorial
+https://www.youtube.com/watch?v=FkLJ45Pt-mY
