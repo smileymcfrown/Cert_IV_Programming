@@ -45,7 +45,8 @@ public class AIController : MonoBehaviour
         {
             playerObj = GameObject.Find("Agent");
         }
-        Transform waypointGroup = GameObject.Find("Waypoints").transform;
+
+        Transform waypointGroup = GameObject.Find("WayPoints").transform;
         waypoints = new Transform[waypointGroup.childCount];
         for (int i = 0; i< waypointGroup.childCount; i++)
         {
@@ -99,7 +100,7 @@ public class AIController : MonoBehaviour
 
     void MoveNextPoint()
     {
-        currentWaypointIndex = Random.Range(0, waypoints.Length - 1); //(currentWaypointIndex + 1) % waypoints.Length;
+        currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         navAgent.SetDestination(waypoints[currentWaypointIndex].position);
     }
 

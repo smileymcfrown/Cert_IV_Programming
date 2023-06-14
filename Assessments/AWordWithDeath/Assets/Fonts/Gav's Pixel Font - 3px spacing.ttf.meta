@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 8180e51baa5ea9f4b94f55a5e2fbbad7
+guid: 9cae528d694a22f48968c4248f50e1c9
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
-  forceTextureCase: -2
+  fontSize: 42
+  forceTextureCase: 3
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
   - Smiley's Pixel Font
   fallbackFontReferences: []
-  customCharacters: 
-  fontRenderingMode: 0
+  customCharacters: '!#$&:?@.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+  fontRenderingMode: 2
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1

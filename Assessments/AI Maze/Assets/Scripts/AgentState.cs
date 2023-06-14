@@ -33,6 +33,8 @@ public class AgentState : MonoBehaviour
 
     private float doorDelay;
     private float danceDelay;
+
+    public Transform destination;
     
     void Awake()
     {
@@ -68,7 +70,9 @@ public class AgentState : MonoBehaviour
         {
             Dance();
         }
-        
+
+        if(destination != null)
+            destination.position = navAgent.destination;
     }
 
     private void MoveTo()
@@ -78,10 +82,12 @@ public class AgentState : MonoBehaviour
         if (!navAgent.pathPending)
         {
             Debug.Log("RemainingDistance: " + navAgent.remainingDistance + " StoppingDistance: " + navAgent.stoppingDistance);
-            if (navAgent.remainingDistance <= navAgent.stoppingDistance + 0.5f)
+            
+            if (navAgent.remainingDistance <= navAgent.stoppingDistance + 0.5f) // && navAgent.pathStatus == NavMeshPathStatus.PathComplete)
             {
                 navAgent.isStopped = true;
                 navAgent.speed = 0;
+                //navAgent.destination = transform.position;
                 onFindTarget();
 
             }
@@ -111,7 +117,7 @@ public class AgentState : MonoBehaviour
        // animator.SetBool("Running", false);
         
         //Look at the camera.. maybe?
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+     //   transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
         
         
     }
@@ -154,14 +160,19 @@ public class AgentState : MonoBehaviour
     private void Dance()
     {
         Debug.Log("In Dance()");
-        if (danceDelay < 5f) danceDelay += Time.deltaTime;
+        if (danceDelay < 2f) danceDelay += Time.deltaTime;
         else
         {
             currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
             navAgent.SetDestination(waypoints[currentWaypoint].position);
             currentState = State.MoveTo;
-            if (onFindTarget == OnFindTreasure) onFindTarget = OnFindKey;
-            else onFindTarget = OnFindDoor;
+            if (onFindTarget == OnFindTreasure)
+            { 
+                onFindTarget = OnFindKey; 
+            }
+            else {
+                onFindTarget = OnFindDoor;
+            }
             danceDelay = 0f;
             //  animator.SetBool("Running", true);
 
