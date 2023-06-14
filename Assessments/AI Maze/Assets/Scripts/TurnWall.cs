@@ -8,6 +8,7 @@ public class TurnWall : MonoBehaviour
 {
     public float waitTime = 10f;
     public float duration = 20f;
+    public float speed = 10f;
     public float swingAmount = 90f;
 
     private float startAngle;
@@ -18,7 +19,7 @@ public class TurnWall : MonoBehaviour
     {
         startAngle = transform.localEulerAngles.y;
         endAngle = startAngle + swingAmount;
-        startPos = Quaternion.identity;
+        startPos = transform.rotation;
         StartCoroutine(Swing());
         
     }
@@ -36,12 +37,14 @@ public class TurnWall : MonoBehaviour
         float time = 0;
         Vector3 eulerAngles;
         
-        if (isOpen) { swingAmount = swingAmount * -1; }
-        else { swingAmount = swingAmount * -1; }
-        Quaternion rotAmount = Quaternion.Euler(0,swingAmount,0);
-        Quaternion lastRot = Quaternion.identity;
-        while (time < duration)
+        //if (isOpen) { swingAmount = swingAmount * -1; }
+        //else { swingAmount = swingAmount * -1; }
+        //Quaternion rotAmount = Quaternion.Euler(0,swingAmount,0);
+        //Quaternion lastRot = Quaternion.identity;
+
+        while (true) //time < duration)
         {
+            /*
             Quaternion newRot = Quaternion.Lerp(startPos, rotAmount,time / duration);
             transform.rotation *= newRot * Quaternion.Inverse(lastRot);
             //transform.Rotate(Vector3.up,Mathf.Lerp(startAngle,endAngle,duration));
@@ -49,45 +52,83 @@ public class TurnWall : MonoBehaviour
             //transform.localEulerAngles = eulerAngles;
             time += Time.deltaTime;
             yield return null;
-            /*
+            */
+
+
+            Quaternion rot = Quaternion.Euler(0, 90, 0);
+
+
+            /*rot = Quaternion.Inverse(rot);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation,  rot, 0.5f);
+
+            yield return null;*/
+
             if (isOpen)
             {
-                
-                if (transform.localEulerAngles.y <= endAngle)
+                if (transform.rotation == rot)
                 {
-                    //transform.Rotate(new Vector3(0, (Time.deltaTime * speed), 0));
+                    isOpen = !isOpen;
+                    yield return new WaitForSeconds(waitTime);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 0.5f);
+
+                    yield return null;
+                }
+
+
+
+                /*if (transform.localEulerAngles.y <= endAngle)
+                {
+                   // transform.Rotate(new Vector3(0, (Time.deltaTime * speed), 0));
+
+
                     //transform.rotation = Quaternion.AngleAxis(90,Vector3.up);
-                    transform.Rotate(Vector3.up,);
+                    //transform.Rotate(Vector3.up,);
                     yield return null;
                 }
                 else
                 {
                     isOpen = !isOpen;
                     yield return new WaitForSeconds(waitTime);
-                }
-                
-                
-                
+                }*/
+
+
+
             }
             else
             {
-                if (transform.localEulerAngles.y >= startAngle && transform.localEulerAngles.y < 91f)
-                {
-                    //Debug.Log(transform.localEulerAngles.y + " StartAngle: " + startAngle);
-                    transform.Rotate(new Vector3(0, -(Time.deltaTime * duration), 0));
-                    yield return null;
-                }
-                else
+                if (transform.rotation == startPos)
                 {
                     isOpen = !isOpen;
                     yield return new WaitForSeconds(waitTime);
                 }
+                else
+                {
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, startPos, 0.5f);
+
+                    yield return null;
+                }
+
+                /*                if (transform.localEulerAngles.y >= startAngle && transform.localEulerAngles.y < 91f)
+                                {
+                                    //Debug.Log(transform.localEulerAngles.y + " StartAngle: " + startAngle);
+                                   // transform.Rotate(new Vector3(0, -(Time.deltaTime * speed), 0));
+                                    yield return null;
+                                }
+                                else
+                                {
+                                    isOpen = !isOpen;
+                                    yield return new WaitForSeconds(waitTime);
+                                }*/
             }
-            */
+
         }
 
-        //eulerAngles = new Vector3(transform.localEulerAngles.x,endAngle,transform.localEulerAngles.z);
-        //transform.localEulerAngles = eulerAngles;
+        eulerAngles = new Vector3(transform.localEulerAngles.x,endAngle,transform.localEulerAngles.z);
+        transform.localEulerAngles = eulerAngles;
         
         isOpen = !isOpen;
         

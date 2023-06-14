@@ -45,7 +45,7 @@ public class AIController : MonoBehaviour
         {
             playerObj = GameObject.Find("Agent");
         }
-        Transform waypointGroup = GameObject.Find("WayPoints").transform;
+        Transform waypointGroup = GameObject.Find("Waypoints").transform;
         waypoints = new Transform[waypointGroup.childCount];
         for (int i = 0; i< waypointGroup.childCount; i++)
         {

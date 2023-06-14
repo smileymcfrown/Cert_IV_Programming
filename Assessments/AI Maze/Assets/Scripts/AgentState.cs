@@ -73,7 +73,7 @@ public class AgentState : MonoBehaviour
 
     private void MoveTo()
     {
-        Debug.Log("In MoveTo()");
+        Debug.Log("In MoveTo() - Target: " + waypoints[currentWaypoint].gameObject.name);
         
         if (!navAgent.pathPending)
         {
@@ -98,11 +98,11 @@ public class AgentState : MonoBehaviour
         Debug.Log("In OnFindTreasure()");
         //Destroy the treasure
         //This if statement is to stop the first object being destroyed immediately... BUT WHY?!
-        Vector3 pos = transform.position - waypoints[currentWaypoint].position;
-        if (pos.sqrMagnitude < 0.5f)
-        {
-            Destroy(waypoints[currentWaypoint].transform.GameObject());
-        }
+        //Vector3 pos = transform.position - waypoints[currentWaypoint].position;
+        //if (pos.sqrMagnitude < 0.5f)
+        //{
+            waypoints[currentWaypoint].transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        //}
 
         //Switch state to Dance
         currentState = State.Dance;
@@ -119,9 +119,10 @@ public class AgentState : MonoBehaviour
     private void OnFindKey()
     {
         Debug.Log("In OnFindKey()");
-        
+
         // Add code to make something happen when the key is found like it getting bigger before disappearing
-        
+        waypoints[currentWaypoint].transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
+
         currentState = State.Dance;
         danceDelay = 0f;
        // animator.SetTrigger("Dance");
@@ -153,7 +154,7 @@ public class AgentState : MonoBehaviour
     private void Dance()
     {
         Debug.Log("In Dance()");
-        if (danceDelay < 10f) danceDelay += Time.deltaTime;
+        if (danceDelay < 5f) danceDelay += Time.deltaTime;
         else
         {
             currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
