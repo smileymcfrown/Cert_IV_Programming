@@ -20,7 +20,7 @@ public class AgentState : MonoBehaviour
     private delegate void OnFindTarget();
     private OnFindTarget onFindTarget;
 
-    [SerializeField] private CharacterController controller;
+    //[SerializeField] private CharacterController controller;
     [SerializeField] private Animator animator;
 
     public Transform[] waypoints;
@@ -39,8 +39,6 @@ public class AgentState : MonoBehaviour
     void Awake()
     {
         currentState = State.Idle;
-
-
     }
 
     private void Start()
@@ -53,10 +51,11 @@ public class AgentState : MonoBehaviour
 
         currentWaypoint = 0;
         navAgent.SetDestination(waypoints[currentWaypoint].position);
+        Debug.Log("Array: " + waypoints[currentWaypoint].position + " / SetDestination: " + navAgent.destination);
         onFindTarget = OnFindTreasure;
         currentState = State.MoveTo;
-        //animator.SetBool("Running", true);
-
+        animator.SetBool("Running", true);
+        
     }
 
     // Update is called once per frame
@@ -71,19 +70,25 @@ public class AgentState : MonoBehaviour
             Dance();
         }
 
-        if(destination != null)
+        if (destination != null)
+        {
             destination.position = navAgent.destination;
+            Debug.Log("Update destination" + navAgent.destination + " / Update array: " + waypoints[currentWaypoint].position);
+        }
     }
 
     private void MoveTo()
     {
-        Debug.Log("In MoveTo() - Target: " + waypoints[currentWaypoint].gameObject.name);
-        
+        Debug.Log("In MoveTo() - Target: " + waypoints[currentWaypoint].gameObject.name + "Pos: " + waypoints[currentWaypoint].position);
+        Debug.Log("Sphere: " + destination.position +" / navAgent Destination: " + navAgent.destination);
         if (!navAgent.pathPending)
         {
+            //This should not be here! It should not change!
+            //navAgent.SetDestination(waypoints[currentWaypoint].position);
+            
             Debug.Log("RemainingDistance: " + navAgent.remainingDistance + " StoppingDistance: " + navAgent.stoppingDistance);
             
-            if (navAgent.remainingDistance <= navAgent.stoppingDistance + 0.5f) // && navAgent.pathStatus == NavMeshPathStatus.PathComplete)
+            if (navAgent.remainingDistance <= navAgent.stoppingDistance + 0.00001f) // && navAgent.pathStatus == NavMeshPathStatus.PathComplete)
             {
                 navAgent.isStopped = true;
                 navAgent.speed = 0;
@@ -95,8 +100,19 @@ public class AgentState : MonoBehaviour
             {
                 navAgent.isStopped = false;
                 navAgent.speed = runSpeed;
+                if (navAgent.isOnOffMeshLink)
+                {
+                    animator.SetTrigger("Jump");
+                }
             }
         }
+
+        /*
+        if (navAgent.destination != waypoints[currentWaypoint].position)
+        {
+            navAgent.SetDestination(waypoints[currentWaypoint].position);
+        }
+        */
     }
 
     private void OnFindTreasure()
@@ -113,11 +129,11 @@ public class AgentState : MonoBehaviour
         //Switch state to Dance
         currentState = State.Dance;
         danceDelay = 0f;
-        //animator.SetTrigger("Dance");
-       // animator.SetBool("Running", false);
+        animator.SetTrigger("Dance1");
+        //animator.SetBool("Running", false);
         
         //Look at the camera.. maybe?
-     //   transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
         
         
     }
@@ -131,7 +147,7 @@ public class AgentState : MonoBehaviour
 
         currentState = State.Dance;
         danceDelay = 0f;
-       // animator.SetTrigger("Dance");
+        animator.SetTrigger("Dance1");
        // animator.SetBool("Running", false);
        
        
@@ -164,7 +180,9 @@ public class AgentState : MonoBehaviour
         else
         {
             currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
+            Debug.Log(waypoints[currentWaypoint].gameObject.name + " Pos: " + waypoints[currentWaypoint].position);
             navAgent.SetDestination(waypoints[currentWaypoint].position);
+            Debug.Log("Nav Dest: " + navAgent.destination);
             currentState = State.MoveTo;
             if (onFindTarget == OnFindTreasure)
             { 
@@ -173,8 +191,7 @@ public class AgentState : MonoBehaviour
             else {
                 onFindTarget = OnFindDoor;
             }
-            danceDelay = 0f;
-            //  animator.SetBool("Running", true);
+            animator.SetBool("Running", true);
 
         }
     }

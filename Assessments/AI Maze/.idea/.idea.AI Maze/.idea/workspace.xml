@@ -62,10 +62,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19228">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="68948">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="19228" />
+      <option name="pid" value="68948" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -91,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686491156738</updated>
-      <workItem from="1686491158053" duration="37810000" />
+      <workItem from="1686491158053" duration="48016000" />
     </task>
     <servers />
   </component>
@@ -102,6 +102,38 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/AgentState.cs</url>
+          <line>92</line>
+          <properties documentPath="D:\GitHub\Cert_IV_Programming\Assessments\AI Maze\Assets\Scripts\AgentState.cs" initialLine="91" containingFunctionPresentation="method 'MoveTo'">
+            <startOffsets>
+              <option value="2725" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2751" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/AgentState.cs</url>
+          <line>171</line>
+          <properties documentPath="D:\GitHub\Cert_IV_Programming\Assessments\AI Maze\Assets\Scripts\AgentState.cs" initialLine="163" containingFunctionPresentation="method 'OnFindDoor'">
+            <startOffsets>
+              <option value="5177" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5238" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

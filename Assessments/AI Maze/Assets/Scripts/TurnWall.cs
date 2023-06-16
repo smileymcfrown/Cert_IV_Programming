@@ -15,6 +15,7 @@ public class TurnWall : MonoBehaviour
     private float endAngle;
     private bool isOpen = true;
     private Quaternion startPos;
+    
     void Start()
     {
         startAngle = transform.localEulerAngles.y;
@@ -24,21 +25,10 @@ public class TurnWall : MonoBehaviour
         
     }
 
-    private void Update()
-    {
-        //transform.Rotate(new Vector3(0, -(Time.deltaTime * speed),0));
-    }
-
     IEnumerator Swing()
     {
-
-        float time = 0;
-        Vector3 eulerAngles;
-
-
         while (true)
         {
-
             Quaternion rot = Quaternion.Euler(0, 90, 0);
 
             if (isOpen)
@@ -51,7 +41,6 @@ public class TurnWall : MonoBehaviour
                 else
                 {
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, startPos * rot, speed * Time.deltaTime);
-
                     yield return null;
                 }
             }
@@ -65,18 +54,10 @@ public class TurnWall : MonoBehaviour
                 else
                 {
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, startPos, speed * Time.deltaTime);
-
                     yield return null;
                 }
             }
         }
-
-        //eulerAngles = new Vector3(transform.localEulerAngles.x,endAngle,transform.localEulerAngles.z);
-        //transform.localEulerAngles = eulerAngles;
-        
-        isOpen = !isOpen;
-        
-        yield return new WaitForSeconds(waitTime);
 
     }
 }
