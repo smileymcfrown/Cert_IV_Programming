@@ -11,7 +11,7 @@ public class CustomisationGet : MonoBehaviour
     public TextSaving loadingText;
     void Awake()
     {
-        path = Application.persistentDataPath + "/"+ saveSlot;
+        /*path = Application.persistentDataPath + "/"+ saveSlot;
         loadingText.CharacterLoadSlot(path);
         SetTexture("Skin", int.Parse(loadingText.loadData[0]));
         SetTexture("Mouth", int.Parse(loadingText.loadData[1]));
@@ -20,7 +20,7 @@ public class CustomisationGet : MonoBehaviour
         SetTexture("Clothes", int.Parse(loadingText.loadData[4]));
         SetTexture("Armour", int.Parse(loadingText.loadData[5]));
         SetTexture("Helm", int.Parse(loadingText.loadData[6]));
-        gameObject.name = loadingText.loadData[7];
+        gameObject.name = loadingText.loadData[7];*/
     }
     //element 0-6 is texture
     //element 7 is name

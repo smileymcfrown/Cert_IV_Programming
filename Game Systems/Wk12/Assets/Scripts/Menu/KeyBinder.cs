@@ -20,12 +20,7 @@ public class KeyBinder : MonoBehaviour
     public GameObject currentKey;
     public Color32 changedKey = new Color32(128, 128, 128,255);
     public Color32 selectedKey = new Color32(64, 64, 64,255);
-    
-    
-    
-    
-    
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +36,7 @@ public class KeyBinder : MonoBehaviour
     {
         if (clickedKey != null)
         {
+            currentKey = clickedKey;
             currentKey.GetComponent<Image>().color = selectedKey;
         }
     }

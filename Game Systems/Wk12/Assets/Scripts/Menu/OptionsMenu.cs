@@ -13,7 +13,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
-    [SerializeField] private TMP_Dropdown resDdown;
+    [SerializeField] private TMP_Dropdown resDropdown;
     
 
     private bool firstSet = true;
@@ -21,7 +21,7 @@ public class OptionsMenu : MonoBehaviour
     void Start()
     {
         resolutions = Screen.resolutions;
-        resDdown.ClearOptions();
+        resDropdown.ClearOptions();
         int currentResIndex = 0;
         List<String> options = new List<string>();
         
@@ -36,9 +36,9 @@ public class OptionsMenu : MonoBehaviour
             }
         }
        
-        resDdown.AddOptions(options);
-        resDdown.value = currentResIndex;
-        resDdown.RefreshShownValue();
+        resDropdown.AddOptions(options);
+        resDropdown.value = currentResIndex;
+        resDropdown.RefreshShownValue();
         
         //if(hasSettings)
         //{
