@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
+    public static GameData gameData;
     public int health;
     public int mana;
     public int stamina;
@@ -19,4 +20,5 @@ public class GameData
         this.lastCheckpoint = Vector3.zero; // See above
         this.playerPosition = new Vector3(360f,9.77f, 385);
     }
+
 }

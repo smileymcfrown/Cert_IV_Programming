@@ -33,6 +33,7 @@ public class AgentState : MonoBehaviour
     
     public NavMeshAgent navAgent;
     public Transform waypointsParent;
+    public Transform agentsParentObj;
     public float sandSpeed = 3f;
     public float jumpSpeed = 8f;
     public float runSpeed = 10f;
@@ -55,10 +56,18 @@ public class AgentState : MonoBehaviour
 
     private void Start()
     {
+        //Agents are randomly assigned and equal number of treasures to collect before going to a door as the point
+        //They also have a 50% chance of a key being added to the treasure list before they go to the door (so they don't have to go back)
+
         int x;
         int goalAmt;
-        goalAmt = Goals.goalList.Count / 3;
+
+        //Divide the treasures between the number of agents
+        goalAmt = Goals.goalList.Count / agentsParentObj.childCount;
+
+        Debug.Log("Agent count: " + agentsParentObj.childCount);
         
+        //50-50 chance of a key being added to the treasures
         if (Random.Range(0f, 1f) < .5f)
         {
             Debug.Log("Getting Key");
@@ -74,6 +83,7 @@ public class AgentState : MonoBehaviour
         {
             if (x == i)
             {
+                Debug.Log(Goals.keyList.Count);
                 x = Random.Range(0, Goals.keyList.Count);
                 waypoints.Add(Goals.keyList[x]);
                 Goals.keyList.RemoveAt(x);
@@ -89,12 +99,15 @@ public class AgentState : MonoBehaviour
         }
         
         waypoints.Add(Goals.doors[Random.Range(0, Goals.doors.Length)]);
+
         Debug.Log("Door: " + waypoints[waypoints.Count -1].gameObject.name);
 
         hasKey = -1;
         currentWaypoint = 0;
         navAgent.SetDestination(waypoints[currentWaypoint].position);
+        
         Debug.Log("Array: " + waypoints[currentWaypoint].position + " / SetDestination: " + navAgent.destination);
+        
         if (waypoints[currentWaypoint].gameObject.layer == 11)
         {
             onFindTarget = OnFindTreasure;
@@ -142,11 +155,50 @@ public class AgentState : MonoBehaviour
             //Debug.Log("Update destination" + navAgent.destination + " / Update array: " + waypoints[currentWaypoint].position);
         }
     }
+    private void StandIdle()
+    {
+        animator.SetBool("Running", false);
+
+        if (idleTime == 0)
+        {
+            animator.SetTrigger("Default");
+            idleTime += Time.deltaTime;
+        }
+        else if (idleTime >= 3f)
+        {
+            animator.SetBool("StillWaiting", true);
+        }
+
+        if (navAgent.isPathStale || navAgent.pathPending)
+        {
+            navAgent.isStopped = true;
+            navAgent.speed = 0;
+            if (idleDelay > 3)
+            {
+
+            }
+            else
+            {
+
+
+                navAgent.SetDestination(waypoints[currentWaypoint].position);
+            }
+
+            navAgent.SetDestination(waypoints[currentWaypoint].position);
+        }
+        else
+        {
+            navAgent.SetDestination(waypoints[currentWaypoint].position);
+            currentState = State.MoveTo;
+            animator.SetBool("Running", true);
+            idleTime = 0;
+        }
+    }
 
     private void Freedom()
     {
         Debug.Log("Freedom!!!");
-        animator.SetBool("Running",false);
+        //animator.SetBool("Running",false);
         navAgent.isStopped = true;
         navAgent.speed = 0;
         if (idleTime == 0)
@@ -182,46 +234,6 @@ public class AgentState : MonoBehaviour
         }
     }
     
-    private void StandIdle()
-    {   
-        animator.SetBool("Running",false);
-        
-        if (idleTime == 0) 
-        {
-            animator.SetTrigger("Default");
-            idleTime += Time.deltaTime;
-        }
-        else if (idleTime >= 3f)
-        {
-            animator.SetBool("StillWaiting",true);
-        }
-        
-        if (navAgent.isPathStale || navAgent.pathPending)
-        {
-            navAgent.isStopped = true;
-            navAgent.speed = 0;
-            if (idleDelay > 3)
-            {
-                
-            }
-            else
-            {
-                
-                
-                navAgent.SetDestination(waypoints[currentWaypoint].position);
-            }
-
-            navAgent.SetDestination(waypoints[currentWaypoint].position);
-        }
-        else
-        {
-            navAgent.SetDestination(waypoints[currentWaypoint].position);
-            currentState = State.MoveTo;
-            animator.SetBool("Running", true);
-            idleTime = 0;
-        }
-    }
-
 
     private void MoveTo()
     {
@@ -298,8 +310,9 @@ public class AgentState : MonoBehaviour
     private void OnFindKey()
     {
         //Debug.Log("In OnFindKey()");
-        
+
         // Add code to make something happen when the key is found like it getting bigger before disappearing
+        Debug.Log(waypoints[currentWaypoint].name + " : " + waypoints[currentWaypoint].transform.gameObject.GetComponent<MeshRenderer>().enabled); 
         waypoints[currentWaypoint].transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         currentState = State.Dance;
@@ -335,7 +348,7 @@ public class AgentState : MonoBehaviour
                    break;
                case "Gold Key":
                    hasKey = 2;
-                   waypoints.Add(Goals.doors[hasKey]);
+                   waypoints.Add(Goals.doors[Random.Range(0,2)]);
                    break;
            }
        }

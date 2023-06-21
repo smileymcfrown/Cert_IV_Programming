@@ -9,8 +9,8 @@ public class DataManager : MonoBehaviour
     [SerializeField] private string saveFileName;
     [SerializeField] private string settingsFileName;
     
-    private GameData gameData;
-    private SettingsData settingsData;
+    //private GameData gameData;
+    //private SettingsData settingsData;
     private FileHandler fileHandler;
     public static DataManager instance { get; private set; }
     void Awake()
@@ -30,15 +30,15 @@ public class DataManager : MonoBehaviour
 
     public void NewGame()
     {
-        this.gameData = new GameData();
+        GameData.gameData = new GameData();
     }
 
     public void LoadGame()
     {
         this.fileHandler = new FileHandler(Application.persistentDataPath, saveFileName);
-        this.gameData = fileHandler.LoadGame();
+        GameData.gameData = fileHandler.LoadGame();
         
-        if (this.gameData == null)
+        if (GameData.gameData == null)
         {
             Debug.Log("No game data to load. Starting new game.");
             NewGame();
@@ -48,25 +48,26 @@ public class DataManager : MonoBehaviour
     public void SaveGame()
     {
         this.fileHandler = new FileHandler(Application.persistentDataPath, saveFileName);
-        fileHandler.SaveGame(gameData);
+        fileHandler.SaveGame(GameData.gameData);
     }
 
     public void LoadSettings()
     {
-        this.fileHandler = new FileHandler(Application.persistentDataPath, settingsFileName);
-        this.settingsData = fileHandler.LoadSettings();
+        Debug.Log("You're in");
+        /*this.fileHandler = new FileHandler(Application.persistentDataPath, settingsFileName);
+        SettingsData.settingsData = fileHandler.LoadSettings();
         
-        if (this.settingsData == null)
+        if (SettingsData.settingsData == null)
         {
             Debug.Log("No settings data to load.");
-            this.settingsData = new SettingsData();
-        }
+            SettingsData.settingsData = new SettingsData();
+        }*/
     }
 
     public void SaveSettings()
     {
         this.fileHandler = new FileHandler(Application.persistentDataPath, settingsFileName);
-        fileHandler.SaveSettings(settingsData);
+        fileHandler.SaveSettings(SettingsData.settingsData);
     }
     
     // Update is called once per frame

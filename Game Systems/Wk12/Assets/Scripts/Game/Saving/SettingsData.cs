@@ -5,13 +5,13 @@ using UnityEngine;
 [System.Serializable]
 public class SettingsData
 {
+    public static SettingsData settingsData;
     public float musicVol; 
     public float sfxVol;
     public int gfxQuality;
     public bool isFullScreen;
     public int screenWidth;
     public int screenHeight;
-    public Transform lastCheckpoint;
 
     public SettingsData()
     {

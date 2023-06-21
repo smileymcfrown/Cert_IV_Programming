@@ -14,10 +14,13 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private TMP_Dropdown resDropdown;
-    
+    [SerializeField] private GameObject mainMenu;
+
+    private DataManager dataManager;
 
     private bool firstSet = true;
     private Resolution[] resolutions;
+
     void Start()
     {
         resolutions = Screen.resolutions;
@@ -75,9 +78,10 @@ public class OptionsMenu : MonoBehaviour
         Debug.Log("Full: " + isFullScreen);
     }
 
-    public void ScreenRes()
+    public void ScreenRes(int resIndex)
     {
-        
+        Resolution res = resolutions[resIndex];
+        Screen.SetResolution(res.width, res.height,Screen.fullScreen);
     }
 
     public void GfxLevel(int level)
@@ -88,19 +92,26 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetMusicVol()
     {
-        float vol = musicSlider.value;
-        mixer.SetFloat("music", Mathf.Log10(vol) * 20);
+        SettingsData.settingsData.musicVol = musicSlider.value;
+        mixer.SetFloat("music", Mathf.Log10(SettingsData.settingsData.musicVol) * 20);
+        
         //Set to array or something here
     }
 
     public void SetSfxVol()
     {
-        float vol = sfxSlider.value;
-        mixer.SetFloat("sfx", Mathf.Log10(vol) * 20);
+        SettingsData.settingsData.musicVol = sfxSlider.value;
+        mixer.SetFloat("sfx", Mathf.Log10(SettingsData.settingsData.musicVol) * 20);
+        
         if (!firstSet)
         {
             sfxSource.Play();
         }
         //Set to array or something here
+    }
+
+    public void ReturnAndSave()
+    {
+        dataManager.SaveSettings();
     }
 }

@@ -8,10 +8,8 @@ public class Goals : MonoBehaviour
     public static List<Transform> keyList = new List<Transform>();
 
     public static Transform[] doors;
-
     
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Transform treasure = transform.Find("Treasure");
         Transform keys = transform.Find("Keys");
