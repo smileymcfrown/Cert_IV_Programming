@@ -15,11 +15,11 @@ public class SettingsData
 
     public SettingsData()
     {
-        this.musicVol = .5f;
-        this.sfxVol = .5f;
+        this.musicVol = .4f;
+        this.sfxVol = .6f;
         this.gfxQuality = 2;
         this.isFullScreen = false;
-        this.screenWidth = 1280;
-        this.screenHeight = 720;
+        this.screenWidth = 0;
+        this.screenHeight = 0;
     }
 }

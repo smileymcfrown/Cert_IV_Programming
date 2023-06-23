@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class MenuHandler : MonoBehaviour
 {
     [SerializeField] private GameObject mainPanel, playPanel, optionsPanel;
-    private DataManager dataManager;
 
+    private OptionsMenu optionsMenu;
+    
     // Start is called before the first frame update
     void Start()
     {
-        //dataManager.LoadSettings();
+        
+        
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class MenuHandler : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
     }
 
-    public void OptionsMenu()
+    public void OpenOptions()
     {
         optionsPanel.SetActive(true);
         mainPanel.SetActive(false);

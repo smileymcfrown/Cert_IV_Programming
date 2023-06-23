@@ -17,7 +17,22 @@ public class FileHandler
     
     public FileHandler(string dataPath, string dataFile)
     {
-        this.dataPath = dataPath;
+        if (dataPath.EndsWith('\\') || dataPath.EndsWith('/'))
+        {
+            this.dataPath = dataPath;
+        }
+        else
+        {
+            if (dataPath.Contains('/'))
+            {
+                this.dataPath = dataPath + "/";
+            }
+            else
+            {
+                this.dataPath = dataPath + "\\";
+            }
+            
+        }
         this.dataFile = dataFile;
     }
 

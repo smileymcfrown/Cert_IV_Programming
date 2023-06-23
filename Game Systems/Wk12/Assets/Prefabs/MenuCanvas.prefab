@@ -4724,7 +4724,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7862602284258241994}
         m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
-        m_MethodName: OptionsMenu
+        m_MethodName: OpenOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -3975,8 +3975,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenScale: {x: 0, y: 0}
-  toggleGrid: 0
-  toggleLabel: 0
+  toggleGrid: 1
+  toggleLabel: 1
   showMenuPanel: 1
   showOptionsPanel: 0
   audioSource: {fileID: 0}
@@ -4027,7 +4027,6 @@ MonoBehaviour:
   mainPanel: {fileID: 2934023491819195093}
   playPanel: {fileID: 86006757}
   optionsPanel: {fileID: 2934023491800319343}
-  dataManager: {fileID: 0}
 --- !u!114 &1890133842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4181,6 +4180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anyKeyPnl: {fileID: 1980653609}
   mainPnl: {fileID: 2934023491475004806}
+  mixer: {fileID: 24100000, guid: f24440106d2f55a4f99726b4cbbb6a54, type: 2}
 --- !u!1 &2058762146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5186,21 +5186,7 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options:
-    - m_Text: 1024 x 576
-      m_Image: {fileID: 0}
-    - m_Text: 1280 x 720
-      m_Image: {fileID: 0}
-    - m_Text: 1366 x 768
-      m_Image: {fileID: 0}
-    - m_Text: 1600 x 900
-      m_Image: {fileID: 0}
-    - m_Text: 1920 x 1080
-      m_Image: {fileID: 0}
-    - m_Text: 2560 x 1440
-      m_Image: {fileID: 0}
-    - m_Text: 3840 x 2160
-      m_Image: {fileID: 0}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -5608,12 +5594,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c096fbf6456d16b4a86bc8ef529cef40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenToggle: {fileID: 2934023491824039271}
+  resDropdown: {fileID: 2934023491621561486}
+  gfxDropdown: {fileID: 7530654164345489791}
   mixer: {fileID: 24100000, guid: f24440106d2f55a4f99726b4cbbb6a54, type: 2}
   sfxSource: {fileID: 574017976}
   musicSlider: {fileID: 2934023491820739263}
   sfxSlider: {fileID: 2934023492335136782}
-  resDropdown: {fileID: 2934023491621561486}
-  mainMenu: {fileID: 0}
 --- !u!1 &2934023491800319343
 GameObject:
   m_ObjectHideFlags: 0
@@ -6792,7 +6779,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1890133841}
         m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
-        m_MethodName: OptionsMenu
+        m_MethodName: OpenOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7464,13 +7451,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1890133837}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 1890133843}
+        m_TargetAssemblyTypeName: DataManager, Assembly-CSharp
+        m_MethodName: SaveSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

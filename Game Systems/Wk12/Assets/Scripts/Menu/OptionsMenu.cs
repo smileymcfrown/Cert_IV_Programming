@@ -2,21 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Android.Types;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
+    [SerializeField] private Toggle screenToggle;
+    [SerializeField] private TMP_Dropdown resDropdown;
+    [SerializeField] private TMP_Dropdown gfxDropdown;
+    
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
-    [SerializeField] private TMP_Dropdown resDropdown;
-    [SerializeField] private GameObject mainMenu;
 
-    private DataManager dataManager;
+
+    
+    
+    //[SerializeField] private GameObject mainMenu;
 
     private bool firstSet = true;
     private Resolution[] resolutions;
@@ -43,75 +47,147 @@ public class OptionsMenu : MonoBehaviour
         resDropdown.value = currentResIndex;
         resDropdown.RefreshShownValue();
         
-        //if(hasSettings)
-        //{
-        //LoadOptions();
-        //}
-        //else
-        //{
-        SetMusicVol();
-        SetSfxVol();
-        //}
+        
+        gfxDropdown.value = QualitySettings.GetQualityLevel();
+        gfxDropdown.RefreshShownValue();
+        if (QualitySettings.GetQualityLevel() != SettingsData.settingsData.gfxQuality)
+        {
+            Debug.Log("GFX Quality Level does not match saved settings.\n Settings Data did not load from AnyKey.cs or does not match for some reason");
+        }
+        
+        float mixerVal;
+        mixer.GetFloat("music", out mixerVal);
+        if (Mathf.Approximately(Mathf.Log10(SettingsData.settingsData.musicVol) * 20, mixerVal))
+        {
+            musicSlider.value = SettingsData.settingsData.musicVol;
+        }
+        else
+        {
+            Debug.Log("Music volume settings don't match. settingsData.musicVol = " + SettingsData.settingsData.musicVol + " mixerVal = " + mixerVal);
+            musicSlider.value = SettingsData.settingsData.musicVol;
+        }
+        
+        mixer.GetFloat("sfx", out mixerVal);
+        if (Mathf.Approximately(Mathf.Log10(SettingsData.settingsData.sfxVol) * 20, mixerVal))
+        {
+            sfxSlider.value = SettingsData.settingsData.sfxVol;
+        }
+        else
+        {
+            Debug.Log("SFX volume settings don't match. settingsData.sfxVol = " + SettingsData.settingsData.sfxVol + " mixerVal = " + mixerVal);
+            sfxSlider.value = SettingsData.settingsData.sfxVol;
+        }
         firstSet = false;
+        
+        screenToggle.isOn = Screen.fullScreen;
+        if (SettingsData.settingsData.isFullScreen != Screen.fullScreen)
+        {
+            Debug.Log("Full Screen does not match saved settings.\n Settings Data did not load from AnyKey.cs or does not match for some reason");
+        }
+
+
     }
 
     private void Update()
     {
         
     }
-
-    public void LoadOptions()
-    {
-        //Add code to get value from retrieved file
-        
-        //musicSlider.value = some value from an array or something
-        //sfxSlider.value = some value from an array or something
-        //GfxLevel(  );
-        //FullScreen(  );
-        SetMusicVol();
-        SetSfxVol();
-    }
+    
     
     public void FullScreen(bool isFullScreen)
     {
-        Screen.fullScreen = isFullScreen;
+        /*if (firstSet)
+        {
+            Screen.fullScreen = isFullScreen;
+            screenToggle.isOn = isFullScreen;
+        }
+        else
+        {*/
+            SettingsData.settingsData.isFullScreen = Screen.fullScreen = isFullScreen;
+        //}
+
         Debug.Log("Full: " + isFullScreen);
     }
 
     public void ScreenRes(int resIndex)
     {
-        Resolution res = resolutions[resIndex];
-        Screen.SetResolution(res.width, res.height,Screen.fullScreen);
+        /*if (resIndex == -1)
+        {
+            bool resFound = false;
+            for(int i = 0; i < resolutions.Length; i++)
+            {
+                if (resolutions[i].width == SettingsData.settingsData.screenWidth &&
+                    resolutions[i].height == SettingsData.settingsData.screenHeight)
+                {
+                    resDropdown.value = i;
+                    Screen.SetResolution(SettingsData.settingsData.screenWidth, SettingsData.settingsData.screenHeight,
+                        Screen.fullScreen);
+                    resFound = true;
+                }
+            }
+
+            if (!resFound)
+            {
+                Debug.Log("Saved Resolution not found!\n   Updating saved settings to current resolution.");
+                SettingsData.settingsData.screenWidth = Screen.currentResolution.width;
+                SettingsData.settingsData.screenHeight = Screen.currentResolution.height;
+            }
+            Screen.SetResolution(SettingsData.settingsData.screenWidth, SettingsData.settingsData.screenHeight,Screen.fullScreen);
+        }
+        else
+        {*/
+            Resolution res = resolutions[resIndex];
+            SettingsData.settingsData.screenWidth = res.width;
+            SettingsData.settingsData.screenHeight = res.height;
+            Screen.SetResolution(res.width, res.height,Screen.fullScreen);
+        //}
+        
     }
 
     public void GfxLevel(int level)
     {
-        QualitySettings.SetQualityLevel(level);
+        /*if (firstSet)
+        {
+            QualitySettings.SetQualityLevel(level);
+        }
+        else
+        {*/
+            SettingsData.settingsData.gfxQuality = level;
+            QualitySettings.SetQualityLevel(level);
+        //}
         Debug.Log(QualitySettings.GetQualityLevel());
     }
 
     public void SetMusicVol()
     {
-        SettingsData.settingsData.musicVol = musicSlider.value;
-        mixer.SetFloat("music", Mathf.Log10(SettingsData.settingsData.musicVol) * 20);
-        
-        //Set to array or something here
+        /*if (firstSet)
+        {
+            musicSlider.value = SettingsData.settingsData.musicVol;
+            mixer.SetFloat("music", Mathf.Log10(SettingsData.settingsData.musicVol) * 20);
+        }
+        else
+        {*/
+            SettingsData.settingsData.musicVol = musicSlider.value;
+            mixer.SetFloat("music", Mathf.Log10(SettingsData.settingsData.musicVol) * 20);
+        //}
     }
 
     public void SetSfxVol()
     {
-        SettingsData.settingsData.musicVol = sfxSlider.value;
-        mixer.SetFloat("sfx", Mathf.Log10(SettingsData.settingsData.musicVol) * 20);
-        
-        if (!firstSet)
+        /*if (firstSet)
         {
-            sfxSource.Play();
+            mixer.SetFloat("sfx", Mathf.Log10(SettingsData.settingsData.sfxVol) * 20);
+            sfxSlider.value = SettingsData.settingsData.sfxVol;
         }
-        //Set to array or something here
-    }
-
-    public void ReturnAndSave()
-    {
-        dataManager.SaveSettings();
+        else
+        {*/
+            
+            SettingsData.settingsData.sfxVol = sfxSlider.value;
+            mixer.SetFloat("sfx", Mathf.Log10(SettingsData.settingsData.sfxVol) * 20);
+            if (!firstSet)
+            {
+                sfxSource.Play();
+            }
+            //}
     }
 }
