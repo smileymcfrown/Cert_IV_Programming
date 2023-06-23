@@ -27,29 +27,38 @@ public class OptionsMenu : MonoBehaviour
 
     void Start()
     {
+        
         resolutions = Screen.resolutions;
         resDropdown.ClearOptions();
         int currentResIndex = 0;
         List<String> options = new List<string>();
-        
+
+        Resolution tempRes = new Resolution();
+            ;
         for (int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width + "x" + resolutions[i].height;
-            options.Add(option);
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
+            if (tempRes.width != resolutions[i].width && tempRes.height != resolutions[i].height)
             {
-                currentResIndex = i;
+                string option = resolutions[i].width + "x" + resolutions[i].height;
+                options.Add(option);
+                if (resolutions[i].width == Screen.currentResolution.width &&
+                    resolutions[i].height == Screen.currentResolution.height)
+                {
+                    currentResIndex = i;
+                    Debug.Log("Resolution Index: " + currentResIndex + "\nWidth: " + resolutions[i].width + " Height: " + resolutions[i].height);
+                }
             }
+            tempRes = resolutions[i];
         }
        
         resDropdown.AddOptions(options);
-        resDropdown.value = currentResIndex;
+        resDropdown.SetValueWithoutNotify(currentResIndex);
         resDropdown.RefreshShownValue();
-        
-        
-        gfxDropdown.value = QualitySettings.GetQualityLevel();
+
+
+        gfxDropdown.SetValueWithoutNotify(QualitySettings.GetQualityLevel());
         gfxDropdown.RefreshShownValue();
+
         if (QualitySettings.GetQualityLevel() != SettingsData.settingsData.gfxQuality)
         {
             Debug.Log("GFX Quality Level does not match saved settings.\n Settings Data did not load from AnyKey.cs or does not match for some reason");
@@ -59,27 +68,27 @@ public class OptionsMenu : MonoBehaviour
         mixer.GetFloat("music", out mixerVal);
         if (Mathf.Approximately(Mathf.Log10(SettingsData.settingsData.musicVol) * 20, mixerVal))
         {
-            musicSlider.value = SettingsData.settingsData.musicVol;
+            musicSlider.SetValueWithoutNotify(SettingsData.settingsData.musicVol);
         }
         else
         {
             Debug.Log("Music volume settings don't match. settingsData.musicVol = " + SettingsData.settingsData.musicVol + " mixerVal = " + mixerVal);
-            musicSlider.value = SettingsData.settingsData.musicVol;
+            musicSlider.SetValueWithoutNotify(SettingsData.settingsData.musicVol);
         }
         
         mixer.GetFloat("sfx", out mixerVal);
         if (Mathf.Approximately(Mathf.Log10(SettingsData.settingsData.sfxVol) * 20, mixerVal))
         {
-            sfxSlider.value = SettingsData.settingsData.sfxVol;
+            sfxSlider.SetValueWithoutNotify(SettingsData.settingsData.sfxVol);
         }
         else
         {
             Debug.Log("SFX volume settings don't match. settingsData.sfxVol = " + SettingsData.settingsData.sfxVol + " mixerVal = " + mixerVal);
-            sfxSlider.value = SettingsData.settingsData.sfxVol;
+            sfxSlider.SetValueWithoutNotify(SettingsData.settingsData.sfxVol);
         }
         firstSet = false;
         
-        screenToggle.isOn = Screen.fullScreen;
+        screenToggle.SetIsOnWithoutNotify(Screen.fullScreen);
         if (SettingsData.settingsData.isFullScreen != Screen.fullScreen)
         {
             Debug.Log("Full Screen does not match saved settings.\n Settings Data did not load from AnyKey.cs or does not match for some reason");
@@ -111,6 +120,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void ScreenRes(int resIndex)
     {
+        Debug.Log("resIndex: " + resIndex);
         /*if (resIndex == -1)
         {
             bool resFound = false;

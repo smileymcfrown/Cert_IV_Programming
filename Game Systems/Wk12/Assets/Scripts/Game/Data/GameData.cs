@@ -11,6 +11,8 @@ public class GameData
     public int stamina;
     public Vector3 lastCheckpoint; // How best to store this?
     public Vector3 playerPosition;
+    public Vector3 playerRotation;
+
 
     public GameData()
     {
@@ -19,6 +21,7 @@ public class GameData
         this.stamina = 100;
         this.lastCheckpoint = Vector3.zero; // See above
         this.playerPosition = new Vector3(360f,9.77f, 385);
+        this.playerRotation = new Vector3(0, 0, 0);
     }
 
 }

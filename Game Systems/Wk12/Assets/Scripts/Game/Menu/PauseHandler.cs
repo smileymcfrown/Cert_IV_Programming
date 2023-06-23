@@ -8,6 +8,7 @@ public class PauseHandler : MonoBehaviour
 
     public static bool isPaused;
     public GameObject pauseMenu, optionsMenu;
+    public Transform player;
     public CharacterController controller;
 
     public void Paused()
@@ -19,6 +20,8 @@ public class PauseHandler : MonoBehaviour
         pauseMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        GameData.gameData.playerPosition = player.position;
+        GameData.gameData.playerRotation = player.rotation.eulerAngles;
     }
     
     public void UnPaused()
