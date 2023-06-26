@@ -12,6 +12,7 @@ public class SettingsData
     public bool isFullScreen;
     public int screenWidth;
     public int screenHeight;
+    public Dictionary<string, string> keyBinds;
 
     public SettingsData()
     {
@@ -21,5 +22,6 @@ public class SettingsData
         this.isFullScreen = false;
         this.screenWidth = 0;
         this.screenHeight = 0;
+        this.keyBinds = new Dictionary<string, string>();
     }
 }

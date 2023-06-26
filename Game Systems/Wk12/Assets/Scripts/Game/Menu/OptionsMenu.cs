@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -17,13 +18,13 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
 
-
-    
-    
     //[SerializeField] private GameObject mainMenu;
 
     private bool firstSet = true;
     private Resolution[] resolutions;
+    
+    
+
 
     void Start()
     {
@@ -33,22 +34,30 @@ public class OptionsMenu : MonoBehaviour
         int currentResIndex = 0;
         List<String> options = new List<string>();
 
-        Resolution tempRes = new Resolution();
-            ;
+        //Resolution tempRes = new Resolution();
+           
         for (int i = 0; i < resolutions.Length; i++)
         {
-            if (tempRes.width != resolutions[i].width && tempRes.height != resolutions[i].height)
-            {
-                string option = resolutions[i].width + "x" + resolutions[i].height;
-                options.Add(option);
-                if (resolutions[i].width == Screen.currentResolution.width &&
-                    resolutions[i].height == Screen.currentResolution.height)
+           // if (tempRes.width != resolutions[i].width && tempRes.height != resolutions[i].height)
+            //{
+            Debug.Log("Resolutions" + i + " : " + resolutions[i].height + " = " + (resolutions[i].width / (16f / 9f)) + " = "+resolutions[i].width);
+                if (resolutions[i].height == Mathf.RoundToInt(resolutions[i].width / (16f / 9f)))
                 {
-                    currentResIndex = i;
-                    Debug.Log("Resolution Index: " + currentResIndex + "\nWidth: " + resolutions[i].width + " Height: " + resolutions[i].height);
+                    string option = resolutions[i].width + "x" + resolutions[i].height;
+                    if (!options.Contains(option))
+                    {
+                        options.Add(option);
+                        if (resolutions[i].width == Screen.currentResolution.width &&
+                            resolutions[i].height == Screen.currentResolution.height)
+                        {
+                            currentResIndex = i;
+                            Debug.Log("Resolution Index: " + currentResIndex + "\nWidth: " + resolutions[i].width +
+                                      " Height: " + resolutions[i].height);
+                        }
+                    }
                 }
-            }
-            tempRes = resolutions[i];
+            //}
+            //tempRes = resolutions[i];
         }
        
         resDropdown.AddOptions(options);
@@ -64,8 +73,8 @@ public class OptionsMenu : MonoBehaviour
             Debug.Log("GFX Quality Level does not match saved settings.\n Settings Data did not load from AnyKey.cs or does not match for some reason");
         }
         
-        float mixerVal;
-        mixer.GetFloat("music", out mixerVal);
+        
+        mixer.GetFloat("music", out float mixerVal);
         if (Mathf.Approximately(Mathf.Log10(SettingsData.settingsData.musicVol) * 20, mixerVal))
         {
             musicSlider.SetValueWithoutNotify(SettingsData.settingsData.musicVol);
@@ -150,6 +159,7 @@ public class OptionsMenu : MonoBehaviour
             SettingsData.settingsData.screenWidth = res.width;
             SettingsData.settingsData.screenHeight = res.height;
             Screen.SetResolution(res.width, res.height,Screen.fullScreen);
+            
         //}
         
     }

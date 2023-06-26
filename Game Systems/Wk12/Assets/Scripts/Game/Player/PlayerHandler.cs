@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,17 @@ using UnityEngine;
 public class PlayerHandler : Stats
 {
     public Transform currentCheckpoint;
+    //public Transform player;
+
+    private void Awake()
+    {
+        Debug.Log("Stopping here to see what happens");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+
         
     }
 

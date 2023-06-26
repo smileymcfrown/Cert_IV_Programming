@@ -10,18 +10,48 @@ public class PauseHandler : MonoBehaviour
     public GameObject pauseMenu, optionsMenu;
     public Transform player;
     public CharacterController controller;
-
+    [SerializeField] private KeyBinder keyBinder;
     public void Paused()
     {
+        //Reload the key bindings so that the Keybinding Menu is filled out correctly.
+        keyBinder.SetKeyText();
+        
+        // Pause game, lock movement, show mouse 
         GameManager.Instance.gameState = GameState.Pause;
         isPaused = true;
         Time.timeScale = 0;
-        Debug.Log(Time.timeScale);
         pauseMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        GameData.gameData.playerPosition = player.position;
-        GameData.gameData.playerRotation = player.rotation.eulerAngles;
+        
+        // Save current player position and rotation
+        GameData.gameData.playerPosition[0] = player.position.x;
+        GameData.gameData.playerPosition[1] = player.position.y;
+        GameData.gameData.playerPosition[2] = player.position.z;
+        GameData.gameData.playerRotation[0] = player.rotation.eulerAngles.x;
+        GameData.gameData.playerRotation[1] = player.rotation.eulerAngles.y;
+        GameData.gameData.playerRotation[2] = player.rotation.eulerAngles.z;
+
+        // Debug to show transform pos. and rot. and saved pos. and rot. in an easy to read way 
+        #region Show Debug of Player Position Cleanly
+        Debug.Log("Pause Menu - Player Position");
+        Debug.Log("RealPos: " + player.position + " RealRot: " + player.eulerAngles);
+            
+        string posRotArray = "SavePos: (";
+        for (int x = 0; x < GameData.gameData.playerPosition.Length; ++x)
+        {
+            posRotArray += GameData.gameData.playerPosition[x];
+            if(x < GameData.gameData.playerPosition.Length -1){posRotArray += ", ";}
+        }
+        posRotArray += ")  Rotation: (";
+        for (int x = 0; x < GameData.gameData.playerRotation.Length; ++x)
+        {
+            posRotArray += GameData.gameData.playerRotation[x];
+            if(x < GameData.gameData.playerRotation.Length -1){posRotArray += ", ";}
+        }
+        posRotArray += ")";
+        Debug.Log(posRotArray);
+        #endregion
     }
     
     public void UnPaused()
@@ -61,5 +91,13 @@ public class PauseHandler : MonoBehaviour
                 }
             }
         }
+    }
+    
+    public void ExitToDesktop()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        Application.Quit();
     }
 }

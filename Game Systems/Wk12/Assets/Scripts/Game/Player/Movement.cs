@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using UnityEngine;
 namespace Player
 {
@@ -15,9 +16,36 @@ namespace Player
         public float speed = 5f;
         public float  gravity = 20f, jumpSpeed = 8f;
 
+        [SerializeField] private Transform player;
+
         void Start()
         {
+            Debug.Log("In Game - Loading player into current position");
+            player.position = new Vector3(GameData.gameData.playerPosition[0], GameData.gameData.playerPosition[1],
+                GameData.gameData.playerPosition[2]);
+            player.eulerAngles = new Vector3(GameData.gameData.playerRotation[0], GameData.gameData.playerRotation[1],
+                GameData.gameData.playerRotation[2]);
+            
+            Debug.Log("RealPos: " + player.position + " RealRot: " + player.eulerAngles);
+            
+            string posRotArray = "SavePos: (";
+            for (int x = 0; x < GameData.gameData.playerPosition.Length; ++x)
+            {
+                posRotArray += GameData.gameData.playerPosition[x];
+                if(x < GameData.gameData.playerPosition.Length -1){posRotArray += ", ";}
+            }
+            posRotArray += ")  Rotation: (";
+            for (int x = 0; x < GameData.gameData.playerRotation.Length; ++x)
+            {
+                posRotArray += GameData.gameData.playerRotation[x];
+                if(x < GameData.gameData.playerRotation.Length -1){posRotArray += ", ";}
+            }
+            posRotArray += ")";
+            Debug.Log(posRotArray);
+            
+            
             _charC = this.GetComponent<CharacterController>();
+            Debug.Log("_CharC: " + _charC.transform.position + " , " + _charC.transform.rotation);
         }
         void Update()
         {
@@ -30,8 +58,12 @@ namespace Player
                     _moveDir = transform.TransformDirection(_moveDir);
                     _moveDir *= speed;
 
-                    if (Input.GetButton("Jump"))
+                    // Tried to check for a 'jump' input from the key bind array
+                    // by changing from GetButton("Jump") to GetKeyDown(KeyBinder.keys["Jump"])
+                    // to demonstrate keybinding works. But GetKeyDown only worked on every 10-20 presses of space
+                    if (Input.GetButton("Jump")) 
                     {
+                        //Debug.Log("Apparently getting keycode: " + KeyBinder.keys["Jump"]);
                         _moveDir.y = jumpSpeed;
                     }
                 }

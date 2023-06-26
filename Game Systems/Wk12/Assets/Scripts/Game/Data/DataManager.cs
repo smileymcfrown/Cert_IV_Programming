@@ -37,12 +37,7 @@ public class DataManager : MonoBehaviour
     {
         this.fileHandler = new FileHandler(Application.persistentDataPath, saveFileName);
         GameData.gameData = fileHandler.LoadGame();
-        
-        if (GameData.gameData == null)
-        {
-            Debug.Log("No game data to load. Starting new game.");
-            NewGame();
-        }
+
     }
 
     public void SaveGame()
@@ -56,12 +51,6 @@ public class DataManager : MonoBehaviour
         Debug.Log("You're in");
         this.fileHandler = new FileHandler(Application.persistentDataPath, settingsFileName);
         SettingsData.settingsData = fileHandler.LoadSettings();
-        
-        if (SettingsData.settingsData == null)
-        {
-            Debug.Log("No settings data to load.");
-            SettingsData.settingsData = new SettingsData();
-        }
     }
 
     public void SaveSettings()

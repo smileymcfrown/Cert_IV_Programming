@@ -12,6 +12,7 @@ public class Compass : MonoBehaviour
     private void Start()
     {
         playerPositionInWorld = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        Debug.Log("Compass says, PlayerPos: " + playerPositionInWorld.position + " PlayerRot: " + playerPositionInWorld.eulerAngles);
         compassScrollImage = this.GetComponent<RawImage>();
     }
     // Update is called once per frame

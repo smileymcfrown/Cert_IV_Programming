@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class KeyBinder : MonoBehaviour
@@ -21,15 +22,53 @@ public class KeyBinder : MonoBehaviour
     public Color32 changedKey = new Color32(128, 128, 128,255);
     public Color32 selectedKey = new Color32(64, 64, 64,255);
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetKeyText()
+    {
+        for (int i = 0; i < baseSetup.Length; i++)
+        {
+            baseSetup[i].keyDisplayText.text = keys[baseSetup[i].keyName].ToString(); 
+        }
+    }
+    
+    public void SetDefaultKeys()
+    {
+        for (int i = 0; i < baseSetup.Length; i++)
+        {
+            keys.Add(baseSetup[i].keyName, (KeyCode)System.Enum.Parse(typeof(KeyCode),baseSetup[i].defaultKey));
+            baseSetup[i].keyDisplayText.text = keys[baseSetup[i].keyName].ToString();
+            if (SettingsData.settingsData.keyBinds.ContainsKey(baseSetup[i].keyName))
+            {
+                SettingsData.settingsData.keyBinds[baseSetup[i].keyName] = baseSetup[i].defaultKey;
+            }
+            else
+            {
+                SettingsData.settingsData.keyBinds.Add(baseSetup[i].keyName,baseSetup[i].defaultKey);
+            }
+        }
+
+        String keyBindings = "Default keys: ";
+        foreach (var key in SettingsData.settingsData.keyBinds)
+        {
+            keyBindings += key.Key + ": " + key.Value + " , ";
+        }
+        Debug.Log(keyBindings);
+    }
+    
+    public void LoadKeys()
     {
         for (int i = 0; i < baseSetup.Length; i++)
         {
             keys.Add(baseSetup[i].keyName, (KeyCode)System.Enum.Parse(typeof(KeyCode),
-                PlayerPrefs.GetString(baseSetup[i].keyName,baseSetup[i].defaultKey)));
+                SettingsData.settingsData.keyBinds[baseSetup[i].keyName]));
             baseSetup[i].keyDisplayText.text = keys[baseSetup[i].keyName].ToString();
         }
+        
+        String keyBindings = "Loaded Keys: ";
+        foreach (var key in SettingsData.settingsData.keyBinds)
+        {
+            keyBindings += key.Key + ": " + key.Value + " , ";
+        }
+        Debug.Log(keyBindings);
     }
 
     public void ChangeKey(GameObject clickedKey)
@@ -45,9 +84,10 @@ public class KeyBinder : MonoBehaviour
     {
         foreach (var key in keys)
         {
-            PlayerPrefs.SetString(key.Key,key.Value.ToString());
+            SettingsData.settingsData.keyBinds[key.Key] = key.Value.ToString();
+            // PlayerPrefs.SetString(key.Key,key.Value.ToString());
         }
-        PlayerPrefs.Save();
+        // PlayerPrefs.Save();
     }
 
     private void OnGUI()
@@ -77,15 +117,9 @@ public class KeyBinder : MonoBehaviour
                 currentKey.GetComponentInChildren<Text>().text = newKey;
                 currentKey.GetComponent<Image>().color = changedKey;
                 currentKey = null;
+                
             }
         }
 
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

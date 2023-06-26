@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,13 @@ public class LoadingLevel : MonoBehaviour
     public Image progressBar;
     public Text progressText;
 
+    public void NewGame(int sceneIndex)
+    {
+        DataManager.instance.NewGame();
+        
+        LoadLevel(sceneIndex);
+    }
+    
     public void LoadLevel(int sceneIndex)
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
@@ -21,7 +29,7 @@ public class LoadingLevel : MonoBehaviour
             SceneManager.LoadScene(sceneIndex);
         }
     }
-    
+
     IEnumerator LoadAsync(int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);

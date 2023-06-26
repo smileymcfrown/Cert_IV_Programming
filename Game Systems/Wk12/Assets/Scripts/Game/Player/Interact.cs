@@ -12,8 +12,9 @@ namespace Player
 
         void Update()
         {
-            //if our interact key is pressed (E)
-            if (Input.GetKeyDown(KeyCode.E))
+            // If our interact key is pressed (E)
+            // - Changed from KeyCode.E to KeyBinder.keys["Interact"] to test keybinding
+            if (Input.GetKeyDown(KeyBinder.keys["Interact"]))
             {
                 //RAY - A ray is an infinite line starting at origin and going in some direction.
                 //create a ray
