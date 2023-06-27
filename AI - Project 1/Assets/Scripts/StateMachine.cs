@@ -67,7 +67,7 @@ public class StateMachine : MonoBehaviour
 
      private IEnumerator LowHPState()
     {
-        Debug.Log(message:"Enter LowHP State");
+        Debug.Log(message:"You be dying.");
 
         while(_state == State.LowHP)
         {
@@ -98,7 +98,7 @@ public class StateMachine : MonoBehaviour
 
      private IEnumerator SleepState()
     {
-        Debug.Log(message:"Enter Sleep State");
+        Debug.Log(message:"Going to sleep...");
         
         while(_state == State.Sleep)
         {
@@ -106,7 +106,8 @@ public class StateMachine : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log(message:"Exit Sleep State");
+        Debug.Log(message:"... waking up!");
+        NextState();
     }
 
     // Update is called once per frame
