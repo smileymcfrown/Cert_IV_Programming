@@ -43,9 +43,9 @@ public class OptionsMenu : MonoBehaviour
             Debug.Log("Resolutions" + i + " : " + resolutions[i].height + " = " + (resolutions[i].width / (16f / 9f)) + " = "+resolutions[i].width);
                 if (resolutions[i].height == Mathf.RoundToInt(resolutions[i].width / (16f / 9f)))
                 {
-                    string option = resolutions[i].width + "x" + resolutions[i].height;
-                    if (!options.Contains(option))
-                    {
+                    string option = resolutions[i].refreshRate + "Hz - " + resolutions[i].width + "x" + resolutions[i].height;
+                    //if (!options.Contains(option))
+                    //{
                         options.Add(option);
                         if (resolutions[i].width == Screen.currentResolution.width &&
                             resolutions[i].height == Screen.currentResolution.height)
@@ -54,7 +54,7 @@ public class OptionsMenu : MonoBehaviour
                             Debug.Log("Resolution Index: " + currentResIndex + "\nWidth: " + resolutions[i].width +
                                       " Height: " + resolutions[i].height);
                         }
-                    }
+                    //}
                 }
             //}
             //tempRes = resolutions[i];
