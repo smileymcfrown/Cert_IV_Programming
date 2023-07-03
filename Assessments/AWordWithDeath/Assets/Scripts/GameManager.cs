@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public int score;
     public int round;
-    //public List<string> wordList = new List<string>();
     public string[] wordList;
     public List<string> usedWords = new List<string>();
 
@@ -22,20 +21,4 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //wordList.Add("Fuck This");
-        //Debug.Log(wordList[0]);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
- 
-
-
 }

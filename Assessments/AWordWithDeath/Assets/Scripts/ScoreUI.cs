@@ -19,8 +19,7 @@ public class ScoreUI : MonoBehaviour
         }
     }
 
-
-    // Update the score UI when correct letter guessed.
+    // Update the score UI when correct letter guessed - Uses Scrabble scoring
     public void UpdateScore(char letter)
     {
         int letterScore = 0;
@@ -73,17 +72,16 @@ public class ScoreUI : MonoBehaviour
                 break;
         }
 
-        //Testing! Remove!
+        //Testing!
         Debug.Log("Letter: " + letter + ", Letter Score: " + letterScore);
 
         //Update the total score
         GameManager.Instance.score += letterScore;
 
-        //Testing Remove!
+        //Testing!
         Debug.Log("New score: " + GameManager.Instance.score);
+        
         scoreValue.text = GameManager.Instance.score.ToString();
-
-        //GAVIN! - Add code from Cert IV art game for updating the score because you put a nice animation on it and it has a nice pixel art font you made!
     }
 
     // Update the number of rounds when a new round or game starts

@@ -17,8 +17,11 @@ public class PlayWord : MonoBehaviour
     [SerializeField] private GameObject letterSpace;
     [SerializeField] private ScoreUI scoreUI;
     [SerializeField] private GameObject losePanel;
+    [SerializeField] private GameObject censoredPanel;
     [SerializeField] private GameObject winPanel;
-
+    [SerializeField] private Transform bladeTransform;
+    [SerializeField] private float moveTime = 1;
+        
     private List<TMP_Text> wordSpaces = new List<TMP_Text>();
     
 
@@ -79,13 +82,14 @@ public class PlayWord : MonoBehaviour
             if (!GameManager.Instance.usedWords.Contains(word))
             {
                 Debug.Log("Word not used yet.");
+                
                 //To check if words contain characters like ' or - this can be removed if
                 //support for those characters is added.
                 if (word.All(char.IsLetterOrDigit))
                 {
                     GameManager.Instance.usedWords.Add(word);
                     wordCheck = true;
-                    // word = "characteristically".ToUpper(); // Test word 
+                    //word = "cliché".ToUpper();     // Test word - Use "cliché" or "characteristically"
                     Debug.Log("The word of the day is " + word);
                 }
                 else
@@ -107,15 +111,8 @@ public class PlayWord : MonoBehaviour
         // Instantiate a letter space prefabs in to fit within the panel
         float spacing = (transform.GetComponent<RectTransform>().rect.width - 40 - (word.Length * 50)) / (word.Length + 2);
         
-        // Testing! Remove!
-        //Debug.Log("Initial Spacing: " + spacing);
-        
         if (spacing > 40) { spacing = 40; } 
         float startPos = 25 - (((spacing * (word.Length-1)) + (word.Length*50)) /2);
-        
-        // Testing! Remove!
-        //Debug.Log("SPACING!! "+spacing);
-
         
         for (int i = 1; i <= word.Length; i++)
         {
@@ -123,9 +120,6 @@ public class PlayWord : MonoBehaviour
             if(i == 1){gO.transform.localPosition = new Vector3(startPos, 0, 0);}
             else{gO.transform.localPosition = new Vector3(startPos + ((spacing + 50)* (i-1)), 0, 0);}
             wordSpaces.Add(gO.GetComponent<TMP_Text>());
-
-            // Testing! Remove!
-            // Debug.Log(i-1 + " : " + wordSpaces[i-1].text);
         }
     }
     #endregion
@@ -170,37 +164,54 @@ public class PlayWord : MonoBehaviour
         // Play the 'hangman' animation and increase incorrect guess if the wrong letter
         if (!letterFound)
         {
+            Debug.Log("You messed up!");
+            
             //Increase incorrect guesses by one.
             incorrectGuesses++;
-
-
-
-            //Check of the number of guesses and end game at 8
-            if (incorrectGuesses >= 8)
-            {
-                //Play final death animation
-
-                //Load Lose Panel
-                losePanel.SetActive(true);
-
-                // Testing! Remove!
-                Debug.Log("You lost dipshit!");
-            }
-            else
-            {
-                // Testing! Remove!
-                Debug.Log("You FUCKED UP!");
-
-                //Call a function that will be placed on the "Hangman" animation to play it
-            }
+            
+            //Call a coroutine to do the next hangman animation
+            StartCoroutine(BladeMove());
         }
         
         // Fade the letter and disable the button
         button.interactable = false;
-        ColorBlock colours = button.colors;
-        colours.normalColor = Color.grey;
-        button.colors = colours;
-
+        button.GetComponentInChildren<TMP_Text>().color = Color.grey;
     }
     #endregion
+
+    IEnumerator BladeMove()
+    {
+        Vector3 startingPos  = bladeTransform.position;
+        Vector3 finalPos = new Vector3();
+        
+        //Move blade into view for first mistake, then left for each mistake after
+        if (incorrectGuesses == 1)
+        {
+            finalPos = bladeTransform.position + new Vector3(0, 285, 0);
+        }
+        else
+        {
+            finalPos = bladeTransform.position + new Vector3(-77, 0, 0);
+        }
+
+        float elapsedTime = 0;
+        
+        //Move the blade towards finalPos
+        while (elapsedTime < moveTime)
+        {
+            bladeTransform.position = Vector3.Lerp(startingPos, finalPos, (elapsedTime / moveTime));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        //Check of the number of guesses and end game at 8
+        if (incorrectGuesses >= 8)
+        {
+            Debug.Log("You lost!");
+            //Load Lose Panel
+            losePanel.SetActive(true);
+            censoredPanel.SetActive(true);
+        }
+
+    }
 }

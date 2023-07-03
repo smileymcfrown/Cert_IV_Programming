@@ -9,7 +9,6 @@ public class Menus : MonoBehaviour
     [SerializeField] private GameObject mainMenuPanel, quitPanel, difficultyPanel, gamePanel, wordPanel, losePanel, winPanel;
     private GameManager gameManager;
     [SerializeField] LoadWords loadWords;
-    // private PlayWord playWord;
     private bool quitActive = false;
 
     public void MainMenu()
