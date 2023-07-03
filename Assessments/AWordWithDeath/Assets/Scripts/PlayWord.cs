@@ -85,7 +85,7 @@ public class PlayWord : MonoBehaviour
                 {
                     GameManager.Instance.usedWords.Add(word);
                     wordCheck = true;
-                    //word = "SUPERCALIFRAGILISTICEPIALIDOCIOUS"; // Test word
+                    // word = "characteristically".ToUpper(); // Test word 
                     Debug.Log("The word of the day is " + word);
                 }
                 else
