@@ -9,8 +9,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a4789deb75f446a81a24a1a00bdd3f946ac00/4e/85f42f33/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f712b1dc50b4468388b9c5f95d0d0eaf159e00/3b/9fded0e0/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/DatImporter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BladeSpin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ConsoleToGUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayWord.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -39,6 +41,14 @@
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../Programming/Temp_Builds/AWordWithDeath_Build/AWordWithDeath.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\Programming\Temp_Builds\AWordWithDeath_Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.23f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath D:\GitHub\Cert_IV_Programming\Assessments\AWordWithDeath -debugCodeOptimization" />
@@ -88,7 +98,7 @@
       <workItem from="1684682166716" duration="110000" />
       <workItem from="1684682343127" duration="43684000" />
       <workItem from="1688306257119" duration="7000" />
-      <workItem from="1688306338208" duration="11844000" />
+      <workItem from="1688306338208" duration="18766000" />
     </task>
     <servers />
   </component>
@@ -105,16 +115,29 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/PlayWord.cs</url>
-          <line>189</line>
+          <line>197</line>
           <properties documentPath="D:\GitHub\Cert_IV_Programming\Assessments\AWordWithDeath\Assets\Scripts\PlayWord.cs" initialLine="210" containingFunctionPresentation="method 'BladeMove'">
             <startOffsets>
-              <option value="6644" />
+              <option value="6984" />
             </startOffsets>
             <endOffsets>
-              <option value="6696" />
+              <option value="7036" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Menus.cs</url>
+          <line>85</line>
+          <properties documentPath="D:\GitHub\Cert_IV_Programming\Assessments\AWordWithDeath\Assets\Scripts\Menus.cs" initialLine="71" containingFunctionPresentation="method 'NextWord'">
+            <startOffsets>
+              <option value="1961" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1988" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

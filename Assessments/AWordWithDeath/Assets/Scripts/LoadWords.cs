@@ -13,14 +13,14 @@ public class LoadWords : MonoBehaviour
     public void LoadFile(string dictName)
     {
         //Get the file path and name
-        string path = Application.dataPath + "/Dictionaries/" + dictName + ".ddt";
+        string path = Application.streamingAssetsPath + "/Dictionaries/" + dictName + ".ddt";
 
         //Check if it exists
         if (File.Exists(path))
         {
             //If it does, read every line into an array
             GameManager.Instance.wordList = File.ReadAllLines(path);
-            
+            Debug.Log("Words Loaded into Array");
             /*   Test code to find longest words for size and positioning of canvas elements
             int i = 0;
             string longest = "didn't work";

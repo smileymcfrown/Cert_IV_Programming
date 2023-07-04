@@ -20,7 +20,8 @@ public class PlayWord : MonoBehaviour
     [SerializeField] private GameObject censoredPanel;
     [SerializeField] private GameObject winPanel;
     [SerializeField] private Transform bladeTransform;
-    [SerializeField] private float moveTime = 1;
+    [SerializeField] private TMP_Text wordText;
+    [SerializeField] private float moveTime = .7f;
         
     private List<TMP_Text> wordSpaces = new List<TMP_Text>();
     
@@ -31,6 +32,7 @@ public class PlayWord : MonoBehaviour
     // Load a new word when the panel is enabled
     void OnEnable()
     {
+        Debug.Log("Word Panel Enabled");
         //Load a new random word
         LoadWord();
 
@@ -47,7 +49,8 @@ public class PlayWord : MonoBehaviour
     
     private void OnDisable()
     {
-        GameObject gO = GameObject.Find("Keyboard");
+        Debug.Log("Word Panel Disabled");
+        /*GameObject gO = GameObject.Find("Keyboard");
 
         for (int i = gO.transform.childCount - 1; i >= 0; i--)
         {
@@ -61,7 +64,7 @@ public class PlayWord : MonoBehaviour
         for (int i = transform.childCount -1; i >= 0; i--)
         {
             Destroy(transform.GetChild(i).gameObject);
-        }
+        }*/
     }
     
     #region Load A New Random Word
@@ -72,13 +75,14 @@ public class PlayWord : MonoBehaviour
         wordSpaces.Clear();
         //Setting up things to loop through until finding an unused word and stopping loop from going infinite
         bool wordCheck = false;
-        int currentCount = 0;//GameManager.Instance.usedWords.Count;
-        
+        int currentCount = 0;  //GameManager.Instance.usedWords.Count;
 
         //Do a loop until an unused word is found
         while (!wordCheck)
         {
+            Debug.Log("Trying to get word from list");
             word = GameManager.Instance.wordList[Random.Range(0, GameManager.Instance.wordList.Length - 1)].ToUpper();
+            Debug.Log("Word found: " + word);
             if (!GameManager.Instance.usedWords.Contains(word))
             {
                 Debug.Log("Word not used yet.");
@@ -157,6 +161,12 @@ public class PlayWord : MonoBehaviour
         // Finish and show the Win Game panel if they complete the word
         if(lettersCorrect >= word.Length)
         {
+            //Give 10 bonus points if they guess the word without mistakes
+            if (incorrectGuesses == 0)
+            {
+                scoreUI.UpdateScore('Z');
+            }
+            
             //Show Win Panel and end game
             winPanel.SetActive(true);
         }
@@ -209,6 +219,7 @@ public class PlayWord : MonoBehaviour
         {
             Debug.Log("You lost!");
             //Load Lose Panel
+            wordText.text = word;
             losePanel.SetActive(true);
             censoredPanel.SetActive(true);
         }
