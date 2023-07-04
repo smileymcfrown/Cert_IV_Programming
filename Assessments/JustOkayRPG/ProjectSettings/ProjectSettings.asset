@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: ScrubHaus
-  productName: Game System GB2
+  companyName: CertIV_Gavin.L
+  productName: Just Okay RPG
   defaultCursor: {fileID: 2800000, guid: 14a9e0bab3350fa4d828f3783287075b, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}

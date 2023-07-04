@@ -53,7 +53,6 @@ namespace Player
             {
                 if (_charC.isGrounded)
                 {
-                    //_moveDir = transform.TransformDirection(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))* speed);
                     _moveDir = new Vector3(Input.GetAxis("Horizontal"),0, Input.GetAxis("Vertical"));
                     _moveDir = transform.TransformDirection(_moveDir);
                     _moveDir *= speed;
