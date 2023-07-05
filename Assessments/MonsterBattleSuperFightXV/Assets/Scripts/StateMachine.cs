@@ -28,6 +28,7 @@ public class StateMachine : MonoBehaviour
     
     private void Start()
     {
+        state = State.Sleep;
         NextState();
     }
 
@@ -66,7 +67,13 @@ public class StateMachine : MonoBehaviour
         
         while(state == State.Normal)
         {
-            if(enemyHealth.CurrentHealth() > 50 && enemyHealth.CurrentHealth() <= 70)
+            if(enemyHealth.CurrentHealth() == 100)
+            {
+                state = State.Sleep;
+                yield return null;
+                continue;
+            }
+            else if(enemyHealth.CurrentHealth() > 50 && enemyHealth.CurrentHealth() <= 70)
             {
                 state = State.Angry;
                 yield return null;
@@ -158,7 +165,6 @@ public class StateMachine : MonoBehaviour
             }
             else if (enemyHealth.CurrentHealth() < 1)
             {
-                mushroomSprite.color = Color.red;
                 state = State.Death;
                 yield return null;
                 continue;
@@ -186,6 +192,9 @@ public class StateMachine : MonoBehaviour
         Debug.Log("Enemy start dying");
         while(state == State.Death)
         {
+            animEnemy.SetBool("idle", false);
+            animEnemy.SetTrigger("death");
+            mushroomSprite.color = Color.red;
             yield return null;
         }
         Debug.Log("Enemy dead.");
@@ -197,7 +206,18 @@ public class StateMachine : MonoBehaviour
         Debug.Log("Sleepy Monster");
         while(state == State.Sleep)
         {
-
+            if(enemyHealth.CurrentHealth() > 70 && enemyHealth.CurrentHealth() < 100)
+            {
+                state = State.Normal;
+                yield return null;
+                continue;
+            }
+            else if(enemyHealth.CurrentHealth() > 50 && enemyHealth.CurrentHealth() <= 70)
+            {
+                state = State.Angry;
+                yield return null;
+                continue;
+            }
 
             yield return null;
         }

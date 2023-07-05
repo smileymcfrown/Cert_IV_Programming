@@ -7,8 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class ResetScene : MonoBehaviour
 {
+    public GameObject menuPanel;
     private void Start()
     {
+        Time.timeScale = 0;
+    }
+
+    public void StartGame()
+    {
+        menuPanel.SetActive(false);
         Time.timeScale = 1;
     }
 
