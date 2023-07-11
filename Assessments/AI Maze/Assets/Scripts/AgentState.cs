@@ -97,7 +97,7 @@ public class AgentState : MonoBehaviour
             Debug.Log("Object taken: " + waypoints[i].gameObject.name);
             
         }
-        
+        // Add an exit as the final way point
         waypoints.Add(Goals.doors[Random.Range(0, Goals.doors.Length)]);
 
         Debug.Log("Door: " + waypoints[waypoints.Count -1].gameObject.name);
@@ -173,17 +173,6 @@ public class AgentState : MonoBehaviour
         {
             navAgent.isStopped = true;
             navAgent.speed = 0;
-            if (idleDelay > 3)
-            {
-
-            }
-            else
-            {
-
-
-                navAgent.SetDestination(waypoints[currentWaypoint].position);
-            }
-
             navAgent.SetDestination(waypoints[currentWaypoint].position);
         }
         else
@@ -244,14 +233,14 @@ public class AgentState : MonoBehaviour
         }
         else
         {
-            //Debug.Log("In MoveTo() - Target: " + waypoints[currentWaypoint].gameObject.name + "Pos: " + waypoints[currentWaypoint].position);
-            //Debug.Log("Sphere: " + destination.position + " / navAgent Destination: " + navAgent.destination);
+            Debug.Log("In MoveTo() - Target: " + waypoints[currentWaypoint].gameObject.name + "Pos: " + waypoints[currentWaypoint].position);
+            Debug.Log("Sphere: " + destination.position + " / navAgent Destination: " + navAgent.destination);
             if (!navAgent.pathPending)
             {
                 //This should not be here! It should not change!
                 //navAgent.SetDestination(waypoints[currentWaypoint].position);
 
-                //Debug.Log("RemainingDistance: " + navAgent.remainingDistance + " StoppingDistance: " + navAgent.stoppingDistance);
+                Debug.Log("RemainingDistance: " + navAgent.remainingDistance + " StoppingDistance: " + navAgent.stoppingDistance);
 
                 if (navAgent.remainingDistance <=
                     navAgent.stoppingDistance + 0.00001f) // && navAgent.pathStatus == NavMeshPathStatus.PathComplete)
@@ -294,7 +283,7 @@ public class AgentState : MonoBehaviour
 
     private void OnFindTreasure()
     {
-        //Debug.Log("In OnFindTreasure()");
+        Debug.Log("In OnFindTreasure()");
         //Destroy the treasure
         waypoints[currentWaypoint].transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
         
@@ -309,7 +298,7 @@ public class AgentState : MonoBehaviour
 
     private void OnFindKey()
     {
-        //Debug.Log("In OnFindKey()");
+        Debug.Log("In OnFindKey()");
 
         // Add code to make something happen when the key is found like it getting bigger before disappearing
         Debug.Log(waypoints[currentWaypoint].name + " : " + waypoints[currentWaypoint].transform.gameObject.GetComponent<MeshRenderer>().enabled); 
@@ -429,9 +418,9 @@ public class AgentState : MonoBehaviour
             {
                 onFindTarget = OnFindDoor;
             }
-            //Debug.Log(waypoints[currentWaypoint].gameObject.name + " Pos: " + waypoints[currentWaypoint].position);
+            Debug.Log(waypoints[currentWaypoint].gameObject.name + " Pos: " + waypoints[currentWaypoint].position);
             navAgent.SetDestination(waypoints[currentWaypoint].position);
-            //Debug.Log("Nav Dest: " + navAgent.destination);
+            Debug.Log("Nav Dest: " + navAgent.destination);
             currentState = State.MoveTo;
             animator.SetBool("Running", true);
 

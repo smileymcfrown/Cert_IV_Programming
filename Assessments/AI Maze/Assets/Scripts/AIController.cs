@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 
 public class AIController : MonoBehaviour
 {
@@ -41,7 +36,7 @@ public class AIController : MonoBehaviour
     void Start()
     {
         playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj == this.GameObject())
+        if (playerObj == this.gameObject)
         {
             playerObj = GameObject.Find("Agent");
         }
@@ -211,7 +206,7 @@ public class AIController : MonoBehaviour
 
     void AgentVision()
     {
-        if (this.GameObject().layer != 6)
+        if (this.gameObject.layer != 6)
         {
             Collider[] checkPlayerInRange = Physics.OverlapSphere(transform.position, viewRadius, playerMask);
 
