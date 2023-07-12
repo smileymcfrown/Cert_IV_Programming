@@ -10,6 +10,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b978eed7b354d219f4d62e033ae376ecc00/a3/4d10b8bc/NavMeshAgent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/20e7685d165b4202a1ee832a1b9ee11a7400/19/6c64b280/SendMouseEvents.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a4789deb75f446a81a24a1a00bdd3f946ac00/88/6097246f/WaitHandle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4a4789deb75f446a81a24a1a00bdd3f946ac00/cf/31b42205/StringBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6675691ad5424f8f878786c0c92e44ae3a00/cb/ce8f9f32/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f712b1dc50b4468388b9c5f95d0d0eaf159e00/54/5289646d/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f712b1dc50b4468388b9c5f95d0d0eaf159e00/b0/014333b6/Transform.cs" root0="SKIP_HIGHLIGHTING" />
@@ -30,25 +32,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.50457317&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.build.unityPlugin&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.50457317",
+    "settings.editor.selected.configurable": "dotNetConsole",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Tex\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Tex\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Tex\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Tex\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Tex\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\Tex\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../Programming/Cert IV/AIMazeSubmission/AIMaze_Build\AI Maze.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\Programming\Cert IV\AIMazeSubmission\AIMaze_Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.23f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;D:\GitHub\Cert_IV_Programming\Assessments\AI Maze&quot; -debugCodeOptimization" />
@@ -65,10 +75,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="27956">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="27956" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -96,7 +106,7 @@
       <updated>1686491156738</updated>
       <workItem from="1686491158053" duration="73018000" />
       <workItem from="1688797323995" duration="7567000" />
-      <workItem from="1688997857168" duration="13634000" />
+      <workItem from="1688997857168" duration="36016000" />
     </task>
     <servers />
   </component>
@@ -112,20 +122,103 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/ExitDoors.cs</url>
-          <line>45</line>
-          <properties documentPath="D:\GitHub\Cert_IV_Programming\Assessments\AI Maze\Assets\Scripts\ExitDoors.cs" initialLine="40" containingFunctionPresentation="method 'OnTriggerEnter'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/AgentState.cs</url>
+          <line>374</line>
+          <properties documentPath="D:\GitHub\Cert_IV_Programming\Assessments\AI Maze\Assets\Scripts\AgentState.cs" initialLine="365" containingFunctionPresentation="method 'OnFindDoor'">
             <startOffsets>
-              <option value="891" />
+              <option value="11630" />
             </startOffsets>
             <endOffsets>
-              <option value="948" />
+              <option value="11688" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="23" />
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ExitDoors.cs</url>
+          <line>23</line>
+          <properties documentPath="D:\GitHub\Cert_IV_Programming\Assessments\AI Maze\Assets\Scripts\ExitDoors.cs" initialLine="34" containingFunctionPresentation="method 'OnTriggerEnter'">
+            <startOffsets>
+              <option value="595" />
+            </startOffsets>
+            <endOffsets>
+              <option value="618" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/AgentState.cs</url>
+          <line>443</line>
+          <properties documentPath="D:\GitHub\Cert_IV_Programming\Assessments\AI Maze\Assets\Scripts\AgentState.cs" initialLine="439" containingFunctionPresentation="method 'Freedom'">
+            <startOffsets>
+              <option value="13486" />
+            </startOffsets>
+            <endOffsets>
+              <option value="13518" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/AgentState.cs</url>
+          <line>399</line>
+          <properties documentPath="D:\GitHub\Cert_IV_Programming\Assessments\AI Maze\Assets\Scripts\AgentState.cs" initialLine="399" containingFunctionPresentation="method 'DoorWait'">
+            <startOffsets>
+              <option value="12304" />
+            </startOffsets>
+            <endOffsets>
+              <option value="12361" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/AgentState.cs</url>
+          <line>382</line>
+          <properties documentPath="D:\GitHub\Cert_IV_Programming\Assessments\AI Maze\Assets\Scripts\AgentState.cs" initialLine="382" containingFunctionPresentation="method 'OnFindDoor'">
+            <startOffsets>
+              <option value="11973" />
+            </startOffsets>
+            <endOffsets>
+              <option value="12003" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/AgentState.cs</url>
+          <line>342</line>
+          <properties documentPath="D:\GitHub\Cert_IV_Programming\Assessments\AI Maze\Assets\Scripts\AgentState.cs" initialLine="342" containingFunctionPresentation="method 'OnFindDoor'">
+            <startOffsets>
+              <option value="10411" />
+            </startOffsets>
+            <endOffsets>
+              <option value="10441" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/AgentState.cs</url>
+          <line>392</line>
+          <properties documentPath="D:\GitHub\Cert_IV_Programming\Assessments\AI Maze\Assets\Scripts\AgentState.cs" initialLine="392" containingFunctionPresentation="method 'DoorWait'">
+            <startOffsets>
+              <option value="12153" />
+            </startOffsets>
+            <endOffsets>
+              <option value="12200" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#AgentState" memberName="waypoints" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

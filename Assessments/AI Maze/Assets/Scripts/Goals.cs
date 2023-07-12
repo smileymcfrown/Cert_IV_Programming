@@ -6,11 +6,12 @@ public class Goals : MonoBehaviour
 {
     public static List<Transform> goalList = new List<Transform>();
     public static List<Transform> keyList = new List<Transform>();
-
+    public static int goalTotal;
     public static Transform[] doors;
     
     void Awake()
     {
+        goalTotal = 0;
         Transform treasure = transform.Find("Treasure");
         Transform keys = transform.Find("Keys");
         Transform doorObj = transform.Find("Doors");
@@ -18,10 +19,10 @@ public class Goals : MonoBehaviour
         Debug.Log("Treasures: " + treasure.childCount);
         Debug.Log("Keys: " + keys.childCount);
 
-        if(doors == null)
-        {
+        //if(doors == null)
+        //{
             doors = new Transform[doorObj.childCount];
-        }
+        //}
         
         Debug.Log("Doors: " + doors.Length + " / Count: " + doorObj.childCount);
         
@@ -29,6 +30,7 @@ public class Goals : MonoBehaviour
         for (int i = 0; i < treasure.childCount; i++)
         {
             goalList.Add(treasure.GetChild(i));
+            goalTotal++;
         }
         
         Debug.Log("Position 0: " + goalList[0]);

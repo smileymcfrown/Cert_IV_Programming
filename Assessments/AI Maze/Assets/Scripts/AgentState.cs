@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -63,7 +58,7 @@ public class AgentState : MonoBehaviour
         int goalAmt;
 
         //Divide the treasures between the number of agents
-        goalAmt = Goals.goalList.Count / agentsParentObj.childCount;
+        goalAmt = Goals.goalTotal / agentsParentObj.childCount;
 
         Debug.Log("Agent count: " + agentsParentObj.childCount);
         
@@ -150,7 +145,7 @@ public class AgentState : MonoBehaviour
             Freedom();
         }
         
-        if (destination != null)
+        if (destination != null && navAgent.gameObject.activeInHierarchy)
         {
             destination.position = navAgent.destination;
             //Debug.Log("Update destination" + navAgent.destination + " / Update array: " + waypoints[currentWaypoint].position);
@@ -163,7 +158,6 @@ public class AgentState : MonoBehaviour
         if (idleTime == 0)
         {
             animator.SetTrigger("Default");
-            idleTime += Time.deltaTime;
         }
         else if (idleTime >= 3f)
         {
@@ -183,48 +177,10 @@ public class AgentState : MonoBehaviour
             animator.SetBool("Running", true);
             idleTime = 0;
         }
-    }
-
-    private void Freedom()
-    {
-        Debug.Log("Freedom!!!");
-        //animator.SetBool("Running",false);
-        navAgent.isStopped = true;
-        navAgent.speed = 0;
-        if (idleTime == 0)
-        {
-            animator.SetTrigger("FallFlat");
-            idleTime = 1;
-        }
-    }
-
-    private void DoorWait()
-    {
-        Debug.Log("DoorWait()");
-        animator.SetBool("Running",false);
         
-        if (idleTime == 0) 
-        {
-            animator.SetTrigger("Default");
-            idleTime += Time.deltaTime;
-        }
-        else if (idleTime >= 3f)
-        {
-            animator.SetBool("StillWaiting",true);
-        }
-        else if (doorOpen)
-        {
-            Debug.Log(waypoints[waypoints.Count -1].gameObject.name);
-            currentWaypoint = (currentWaypoint + 1) % waypoints.Count;
-            navAgent.SetDestination(waypoints[currentWaypoint].position);
-            onFindTarget = Freedom;
-            currentState = State.MoveTo;
-            animator.SetBool("Running", true);
-            idleTime = 0;
-        }
+        idleTime += Time.deltaTime;
     }
     
-
     private void MoveTo()
     {
         if (navAgent.isPathStale || navAgent.pathPending)
@@ -244,13 +200,11 @@ public class AgentState : MonoBehaviour
                 Debug.Log("RemainingDistance: " + navAgent.remainingDistance + " StoppingDistance: " + navAgent.stoppingDistance);
 
                 if (navAgent.remainingDistance <=
-                    navAgent.stoppingDistance + 0.00001f) // && navAgent.pathStatus == NavMeshPathStatus.PathComplete)
+                    navAgent.stoppingDistance + 0.01f)
                 {
                     navAgent.isStopped = true;
                     navAgent.speed = 0;
-                    //navAgent.destination = transform.position;
                     onFindTarget();
-
                 }
                 else
                 {
@@ -282,6 +236,34 @@ public class AgentState : MonoBehaviour
         */
     }
 
+    private void Dance()
+    {
+        //Debug.Log("In Dance()");
+        if (danceDelay < 5.05f) danceDelay += Time.deltaTime;
+        else
+        {
+            currentWaypoint = (currentWaypoint + 1) % waypoints.Count;
+            if (waypoints[currentWaypoint].gameObject.layer == 11)
+            {
+                onFindTarget = OnFindTreasure;
+            }
+            else if (waypoints[currentWaypoint].gameObject.layer == 12)
+            {
+                onFindTarget = OnFindKey;
+            }
+            else 
+            {
+                onFindTarget = OnFindDoor;
+            }
+            Debug.Log(waypoints[currentWaypoint].gameObject.name + " Pos: " + waypoints[currentWaypoint].position);
+            navAgent.SetDestination(waypoints[currentWaypoint].position);
+            Debug.Log("Nav Dest: " + navAgent.destination);
+            currentState = State.MoveTo;
+            animator.SetBool("Running", true);
+
+        }
+    }
+    
     private void OnFindTreasure()
     {
         Debug.Log("In OnFindTreasure()");
@@ -351,80 +333,127 @@ public class AgentState : MonoBehaviour
 
     private void OnFindDoor()
     {
-        if (hasKey == -1)
+        if (gameObject.name == "FastFatBoy_First_Mate")
         {
-            Debug.Log("No Key!");
-            if (Goals.keyList.Count != 0)
-            {
-                Debug.Log("KeyList: " + Goals.keyList.Count);
-                int rndKey = Random.Range(0, Goals.keyList.Count - 1);
-                Debug.Log("Random Key: " + rndKey);
-                waypoints.Add(Goals.keyList[rndKey]);
-                Goals.keyList.RemoveAt(rndKey);
-                
-                currentWaypoint = (currentWaypoint + 1) % waypoints.Count;
-                navAgent.SetDestination(waypoints[currentWaypoint].position);
-                currentState = State.MoveTo;
-                animator.SetBool("Running", true);
-                onFindTarget = OnFindKey;
-                
-                triedDoor = true;
-                
-            }
-            else {Debug.Log(Goals.keyList.Count);}
-        } 
-        else if (waypoints[currentWaypoint].transform.gameObject.name == "Green Doors" && hasKey == 1)
-        {
-            waypoints.Add(Goals.doors[1]);
-            currentWaypoint = (currentWaypoint + 1) % waypoints.Count;
-            navAgent.SetDestination(waypoints[currentWaypoint].position);
-            currentState = State.MoveTo;
-            animator.SetBool("Running", true);
-            onFindTarget = OnFindDoor;
-
-        }
-        /*else if (!doorOpen)
-        {
-            currentState = State.Idle;
+            Debug.Log("Yes");
         }
 
-        //animator.SetBool("Running", false);
-        if (doorDelay < 1.5f)
-        
-            doorDelay += Time.deltaTime;
-            */
-        
-        else
+        if (doorOpen)
         {
             currentState = State.DoorWait;
+            idleTime = 0;
+        }
+        else
+        {
+            if (hasKey == -1)
+            {
+                Debug.Log("No Key!");
+                if (Goals.keyList.Count != 0)
+                {
+                    Debug.Log("KeyList: " + Goals.keyList.Count);
+                    int rndKey = Random.Range(0, Goals.keyList.Count - 1);
+                    Debug.Log("Random Key: " + rndKey);
+                    waypoints.Add(Goals.keyList[rndKey]);
+                    Goals.keyList.RemoveAt(rndKey);
+
+                    currentWaypoint = (currentWaypoint + 1) % waypoints.Count;
+                    navAgent.SetDestination(waypoints[currentWaypoint].position);
+                    currentState = State.MoveTo;
+                    animator.SetBool("Running", true);
+                    onFindTarget = OnFindKey;
+
+                    triedDoor = true;
+                }
+                else
+                {
+                    Debug.Log(Goals.keyList.Count);
+                }
+            }
+            else if (waypoints[currentWaypoint].transform.gameObject.name == "Green Doors" && hasKey == 1)
+            {
+                waypoints.Add(Goals.doors[1]);
+                currentWaypoint = (currentWaypoint + 1) % waypoints.Count;
+                navAgent.SetDestination(waypoints[(waypoints.Count - 1)].position);
+                currentState = State.MoveTo;
+                animator.SetBool("Running", true);
+                onFindTarget = OnFindDoor;
+            }
+            else
+            {
+                currentState = State.DoorWait;
+                idleTime = 0;
+            }
         }
     }
     
-    private void Dance()
+    private void DoorWait()
     {
-        //Debug.Log("In Dance()");
-        if (danceDelay < 5.05f) danceDelay += Time.deltaTime;
-        else
+        Debug.Log("DoorWait()");
+        
+        if (gameObject.name == "FastFatBoy_First_Mate")
         {
+            Debug.Log("Yes");
+        }
+        
+        if (doorOpen)
+        {
+            Debug.Log(waypoints[waypoints.Count -1].gameObject.name);
             currentWaypoint = (currentWaypoint + 1) % waypoints.Count;
-            if (waypoints[currentWaypoint].gameObject.layer == 11)
-            {
-                onFindTarget = OnFindTreasure;
-            }
-            else if (waypoints[currentWaypoint].gameObject.layer == 12)
-            {
-                onFindTarget = OnFindKey;
-            }
-            else 
-            {
-                onFindTarget = OnFindDoor;
-            }
-            Debug.Log(waypoints[currentWaypoint].gameObject.name + " Pos: " + waypoints[currentWaypoint].position);
             navAgent.SetDestination(waypoints[currentWaypoint].position);
-            Debug.Log("Nav Dest: " + navAgent.destination);
+            onFindTarget = Freedom;
             currentState = State.MoveTo;
             animator.SetBool("Running", true);
-
+            idleTime = 0;
         }
+        else
+        {
+            animator.SetBool("Running",false);
+        
+            if (idleTime == 0) 
+            {
+                animator.SetTrigger("Default");
+            }
+            else if (idleTime >= 3f)
+            {
+                animator.SetBool("StillWaiting",true);
+            }
+            else if (idleTime >= 6f)
+            {
+                doorOpen = true;
+            }
+        
+            idleTime += Time.deltaTime;
+        }
+
+        
+        
+    }
+
+    private void Freedom()
+    {
+        Debug.Log("Freedom!!!");
+        if (gameObject.name == "FastFatBoy_First_Mate")
+        {
+            Debug.Log("Yes");
+        }
+        //animator.SetBool("Running",false);
+        navAgent.isStopped = true;
+        navAgent.speed = 0;
+        if (idleTime == 0)
+        {
+            animator.SetTrigger("FallFlat");
+            gameObject.GetComponent<Collider>().enabled = false;
+            idleTime = .1f;
+        }
+
+        if (idleTime >= 0)
+        {
+            idleTime += Time.deltaTime;
+            if (idleTime >= 5f)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+        
     }
 }

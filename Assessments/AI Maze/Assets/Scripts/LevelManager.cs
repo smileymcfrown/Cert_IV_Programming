@@ -16,12 +16,14 @@ public class LevelManager : MonoBehaviour
     private bool highLow = true;
     private int index = 0;
 
+    /* Removing as cannot reliably reset all variables and collections
     public void ResetScene()
     {
         Goals.goalList.Clear();
         Goals.keyList.Clear();
         SceneManager.LoadScene(0);
     }
+    */
     
     public void CloseScene()
     {

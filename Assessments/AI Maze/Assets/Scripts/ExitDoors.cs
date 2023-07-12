@@ -17,42 +17,49 @@ public class ExitDoors : MonoBehaviour
     public Transform rightDoor;
     
     private AgentState agentState;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    private bool doorOpen;
+    private bool doorOpening;
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("OnTrigger");
-        int door;
-        if (redDoor)
+        agentState = other.gameObject.GetComponent<AgentState>();
+        if (doorOpen)
         {
-            door = 1;
+            agentState.waypoints.Add(outPos);
+            Debug.Log(agentState.waypoints[agentState.waypoints.Count -1].gameObject.name);
+            agentState.doorOpen = true;
         }
         else
         {
-            door = 0;
-        }
-        
-        agentState = other.gameObject.GetComponent<AgentState>();
+            int door;
+            if (redDoor)
+            {
+                door = 1;
+            }
+            else
+            {
+                door = 0;
+            }
 
-        if (agentState.hasKey == door || agentState.hasKey == 2)
-        {
-            StartCoroutine(Open());
+            if (agentState.hasKey == door || agentState.hasKey == 2 || agentState.triedDoor || doorOpening)
+            {
+                if (doorOpening)
+                {
+                    agentState.waypoints.Add(outPos);
+                    Debug.Log(agentState.waypoints[agentState.waypoints.Count -1].gameObject.name);
+                    agentState.doorOpen = true;
+                }
+                else
+                {
+                    StartCoroutine(Open());
+                }
+            }
         }
     }
 
     IEnumerator Open()
     {
+        doorOpening = true;
         yield return new WaitForSeconds(2f);
         Vector3 leftTarget = leftOpenPos;
         Vector3 rightTarget = rightOpenPos;
@@ -63,7 +70,8 @@ public class ExitDoors : MonoBehaviour
                 leftDoor.position = Vector3.MoveTowards(leftDoor.position, leftTarget, speed * Time.deltaTime);
                 yield return null;
         }
-        
+
+        doorOpen = true;
         agentState.waypoints.Add(outPos);
         Debug.Log(agentState.waypoints[agentState.waypoints.Count -1].gameObject.name);
         agentState.doorOpen = true;
