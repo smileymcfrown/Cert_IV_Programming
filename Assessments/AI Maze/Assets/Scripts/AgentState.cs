@@ -87,6 +87,7 @@ public class AgentState : MonoBehaviour
                 x = Random.Range(0, Goals.keyList.Count);
                 waypoints.Add(Goals.keyList[x]);
                 Goals.keyList.RemoveAt(x);
+                x = -1;
             }
             else
             {

@@ -2664,7 +2664,7 @@ Transform:
   m_GameObject: {fileID: 425710568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 45, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 0.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4559,8 +4559,8 @@ MonoBehaviour:
   m_TileSize: 256
   m_OverrideVoxelSize: 1
   m_VoxelSize: 0.1
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 9ab1e2b13d1a33b4aa3aed94baf60306, type: 2}
+  m_MinRegionArea: 0.2
+  m_NavMeshData: {fileID: 23800000, guid: e5b0b668c504b8e4c9d69c00149b21cf, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &556527263
 GameObject:
@@ -8371,7 +8371,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 1
   m_VoxelSize: 0.1
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 824fbb40da595334bb2fc50d5b0ce35c, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b1d6d4d9f780d114bbd39cbf84f558df, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &1032561526
 MonoBehaviour:
@@ -9924,7 +9924,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 1
   m_VoxelSize: 0.1
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 7e9c3d5e79b973642b07a9606bc58882, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ac1da46d843328643a33408d12352748, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &1189159756
 GameObject:
@@ -11872,7 +11872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 102334, guid: 9f907d6996365d14f98f919ae28e1e7f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 102744, guid: 9f907d6996365d14f98f919ae28e1e7f, type: 3}
       propertyPath: m_Layer
@@ -12731,7 +12731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 105566, guid: 81a28c375b28168439a9968612b54c17, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 106418, guid: 81a28c375b28168439a9968612b54c17, type: 3}
       propertyPath: m_Layer
@@ -17674,7 +17674,7 @@ Transform:
   m_GameObject: {fileID: 2074387941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 45, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 0.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -17922,7 +17922,7 @@ Transform:
   m_GameObject: {fileID: 2138975894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 45, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 0.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -18912,7 +18912,7 @@ GameObject:
   - component: {fileID: 4528341837338723240}
   - component: {fileID: 436908014877378743}
   - component: {fileID: 8672243486602459250}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22886,7 +22886,7 @@ GameObject:
   - component: {fileID: 7979428858766391556}
   - component: {fileID: 2673959392928950187}
   - component: {fileID: 830700384245375691}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
